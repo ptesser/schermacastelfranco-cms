@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" aria-hidden="true">
+  <rect width="800" height="500" fill="#E9E9E4"/>
+  <!-- piste -->
+  <rect x="0" y="412" width="800" height="14" fill="#D6D6D0"/>
+  <rect x="396" y="406" width="8" height="26" fill="#111111"/>
+  <g transform="translate(-50 0)">
+  <g fill="none" stroke="#111111" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <!-- back leg -->
+    <path d="M330 270 L250 340 L190 410"/>
+    <!-- front leg (lunge) -->
+    <path d="M345 268 L440 315 L455 410"/>
+    <!-- torso -->
+    <path d="M345 268 L392 182"/>
+    <!-- back arm -->
+    <path d="M384 196 L330 158 L300 112"/>
+    <!-- sword arm -->
+    <path d="M392 192 L470 212 L520 214"/>
+    <!-- feet -->
+    <path d="M190 410 L222 412 M455 410 L494 412"/>
+  </g>
+  <!-- mask -->
+  <ellipse cx="420" cy="150" rx="36" ry="40" fill="#111111"/>
+  <rect x="404" y="128" width="40" height="44" rx="10" fill="#4A4A45"/>
+  <!-- guard and blade -->
+  <ellipse cx="524" cy="214" rx="9" ry="20" fill="#111111"/>
+  <path d="M532 214 L716 206" stroke="#A94442" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="718" cy="206" r="5" fill="#A94442"/>
+  </g>
+</svg>
