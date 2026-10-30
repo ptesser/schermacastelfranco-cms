@@ -5,13 +5,13 @@ import PageHeader from '../components/ui/PageHeader.astro';
 import Section from '../components/ui/Section.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getAlbums } from '../lib/content';
-import placeholder from '../../migration/media/site/banner-schermitore.png';
+import placeholder from '../assets/placeholder-fencer.svg';
 
 const albums = await getAlbums();
 ---
 
 <BaseLayout title="Galleria" description="Album fotografici delle gare e della vita del Circolo Scherma Castelfranco Veneto.">
-  <PageHeader title="Galleria">Le foto delle gare e della vita in sala. Gli album si aprono su Google Foto.</PageHeader>
+  <PageHeader title="Galleria">Le foto delle gare e della vita in sala. Gli album disponibili si aprono su Google Foto.</PageHeader>
 
   <Section label="Album">
     <ul class="grid">
@@ -32,6 +32,7 @@ const albums = await getAlbums();
                   <FormattedDate date={album.data.date} />
                 </p>
               )}
+              {!album.data.externalLink && <p class="muted">Album non più disponibile online.</p>}
             </ImageCard>
           </li>
         ))
