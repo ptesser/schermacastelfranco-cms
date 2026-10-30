@@ -23,16 +23,17 @@ npm run check    # type and template checks
 npm run build    # static site in dist/
 ```
 
-## Deploy (Cloudflare Pages)
+## Deploy (Cloudflare Workers static assets)
+
+The site is served as static assets by a Cloudflare Worker connected to this repository (`wrangler.jsonc`, no Worker code).
 
 | Setting | Value |
 | --- | --- |
-| Framework preset | Astro |
 | Build command | `npm run build` |
-| Output directory | `dist` |
-| Node version | `NODE_VERSION=22` |
+| Deploy command | `npx wrangler deploy` |
+| Node version | from `.nvmrc` (22) |
 
-Create a deploy hook in Pages (Settings › Builds › Deploy hooks) and add it to WordPress via the WP Webhooks plugin, so every publish rebuilds the site.
+Test site: `test.schermacastelfranco.it`. WordPress triggers a rebuild on publish through `SCHERMA_DEPLOY_HOOK_URL` (see `wordpress/README.md`).
 
 ## Code structure
 

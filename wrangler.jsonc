@@ -1,0 +1,10 @@
+{
+  // Cloudflare Workers static assets: serves the Astro build, no Worker code.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "schermacastelfranco-cms",
+  "compatibility_date": "2026-10-30",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+}
