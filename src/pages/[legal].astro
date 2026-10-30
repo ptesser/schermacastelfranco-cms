@@ -1,8 +1,9 @@
 ---
 import PageHeader from '../components/ui/PageHeader.astro';
 import Section from '../components/ui/Section.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
 import { legalNav } from '../config/navigation';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { club } from '../lib/content';
 
 export function getStaticPaths() {
   return legalNav.map((item) => ({
@@ -12,11 +13,45 @@ export function getStaticPaths() {
 }
 
 const { title } = Astro.props;
+const { legal } = Astro.params;
 ---
 
 <BaseLayout title={title}>
   <PageHeader title={title} />
   <Section label={title}>
-    <p class="muted">[Testo da redigere con il circolo]</p>
+    <div class="legal stack">
+      {
+        legal === 'privacy' ? (
+          <>
+            <p>
+              Titolare del trattamento: {club.name}, {club.contacts.email}, PEC {club.contacts.pec}.
+            </p>
+            <h2>Cookie</h2>
+            <p>
+              Questo sito non usa cookie di profilazione né strumenti di statistica e non incorpora contenuti di terze
+              parti. Per questo non mostra banner per il consenso.
+            </p>
+            <h2>Dati trattati</h2>
+            <p>[Dati di navigazione registrati dal fornitore di hosting, dati di chi scrive al circolo, nomi e foto degli atleti pubblicati con il consenso degli interessati o dei genitori: testo da redigere con il circolo.]</p>
+            <h2>Diritti</h2>
+            <p>[Diritti dell'interessato e modalità per esercitarli: testo da redigere con il circolo.]</p>
+          </>
+        ) : (
+          <p>[Stato di conformità alle WCAG 2.2 livello AA, contenuti non accessibili, modalità per segnalare problemi: testo da redigere dopo la verifica finale.]</p>
+        )
+      }
+    </div>
   </Section>
 </BaseLayout>
+
+<style>
+  .legal {
+    --stack-gap: 1rem;
+    max-inline-size: var(--measure);
+  }
+
+  .legal h2 {
+    margin-block-start: 1.5rem;
+    font-size: 1.5rem;
+  }
+</style>

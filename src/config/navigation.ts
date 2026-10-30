@@ -15,8 +15,7 @@ export const mainNav: NavItem[] = [
 export const contactNav: NavItem = { label: 'Contatti', href: '/contatti/' };
 
 export const legalNav: NavItem[] = [
-  { label: 'Privacy', href: '/privacy/' },
-  { label: 'Cookie', href: '/cookie/' },
+  { label: 'Privacy e cookie', href: '/privacy/' },
   { label: 'Dichiarazione di accessibilità', href: '/accessibilita/' },
 ];
 
