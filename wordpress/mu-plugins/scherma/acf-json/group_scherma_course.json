@@ -1,0 +1,70 @@
+{
+  "key": "group_scherma_course",
+  "title": "Dettagli del corso",
+  "fields": [
+    {
+      "key": "field_scherma_course_weapon",
+      "label": "Arma",
+      "name": "weapon",
+      "type": "select",
+      "instructions": "Lascia vuoto se il corso comprende più armi.",
+      "required": 0,
+      "choices": {
+        "fioretto": "Fioretto",
+        "spada": "Spada",
+        "sciabola": "Sciabola"
+      },
+      "allow_null": 1,
+      "return_format": "value"
+    },
+    {
+      "key": "field_scherma_course_age",
+      "label": "Fascia d'età",
+      "name": "age_range",
+      "type": "text",
+      "instructions": "Es. 6–10 anni, Adulti.",
+      "required": 0
+    },
+    {
+      "key": "field_scherma_course_schedule",
+      "label": "Giorni e orari",
+      "name": "schedule",
+      "type": "textarea",
+      "instructions": "",
+      "required": 0,
+      "rows": 3,
+      "new_lines": ""
+    },
+    {
+      "key": "field_scherma_course_price",
+      "label": "Costo",
+      "name": "price",
+      "type": "text",
+      "instructions": "Es. 300 € / anno.",
+      "required": 0
+    },
+    {
+      "key": "field_scherma_course_instructor",
+      "label": "Istruttore",
+      "name": "instructor",
+      "type": "text",
+      "instructions": "",
+      "required": 0
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "course"
+      }
+    ]
+  ],
+  "position": "acf_after_title",
+  "style": "default",
+  "label_placement": "top",
+  "active": true,
+  "show_in_rest": 1,
+  "modified": 1793392539
+}

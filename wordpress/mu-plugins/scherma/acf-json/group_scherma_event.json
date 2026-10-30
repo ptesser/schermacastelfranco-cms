@@ -1,0 +1,48 @@
+{
+  "key": "group_scherma_event",
+  "title": "Dettagli dell'appuntamento",
+  "fields": [
+    {
+      "key": "field_scherma_event_date",
+      "label": "Data",
+      "name": "date",
+      "type": "date_picker",
+      "instructions": "",
+      "required": 1,
+      "display_format": "d/m/Y",
+      "return_format": "Y-m-d",
+      "first_day": 1
+    },
+    {
+      "key": "field_scherma_event_location",
+      "label": "Luogo",
+      "name": "location",
+      "type": "text",
+      "instructions": "",
+      "required": 1
+    },
+    {
+      "key": "field_scherma_event_link",
+      "label": "Link",
+      "name": "link",
+      "type": "url",
+      "instructions": "",
+      "required": 0
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "event"
+      }
+    ]
+  ],
+  "position": "acf_after_title",
+  "style": "default",
+  "label_placement": "top",
+  "active": true,
+  "show_in_rest": 1,
+  "modified": 1793392539
+}

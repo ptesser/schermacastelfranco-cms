@@ -1,0 +1,29 @@
+{
+  "key": "group_scherma_sponsor",
+  "title": "Dettagli dello sponsor",
+  "fields": [
+    {
+      "key": "field_scherma_sponsor_url",
+      "label": "Sito web",
+      "name": "url",
+      "type": "url",
+      "instructions": "",
+      "required": 1
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "sponsor"
+      }
+    ]
+  ],
+  "position": "acf_after_title",
+  "style": "default",
+  "label_placement": "top",
+  "active": true,
+  "show_in_rest": 1,
+  "modified": 1793392539
+}

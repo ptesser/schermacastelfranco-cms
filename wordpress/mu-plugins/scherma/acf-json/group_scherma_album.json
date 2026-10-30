@@ -1,0 +1,40 @@
+{
+  "key": "group_scherma_album",
+  "title": "Dettagli dell'album",
+  "fields": [
+    {
+      "key": "field_scherma_album_date",
+      "label": "Data",
+      "name": "date",
+      "type": "date_picker",
+      "instructions": "",
+      "required": 0,
+      "display_format": "d/m/Y",
+      "return_format": "Y-m-d",
+      "first_day": 1
+    },
+    {
+      "key": "field_scherma_album_link",
+      "label": "Link esterno all'album",
+      "name": "external_link",
+      "type": "url",
+      "instructions": "Facoltativo. Le foto caricate in questo album vengono mostrate sul sito.",
+      "required": 0
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "album"
+      }
+    ]
+  ],
+  "position": "acf_after_title",
+  "style": "default",
+  "label_placement": "top",
+  "active": true,
+  "show_in_rest": 1,
+  "modified": 1793392539
+}

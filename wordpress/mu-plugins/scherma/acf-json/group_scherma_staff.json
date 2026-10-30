@@ -1,0 +1,37 @@
+{
+  "key": "group_scherma_staff",
+  "title": "Dettagli della persona",
+  "fields": [
+    {
+      "key": "field_scherma_staff_role",
+      "label": "Ruolo",
+      "name": "role",
+      "type": "text",
+      "instructions": "Es. Presidente e Maestro.",
+      "required": 1
+    },
+    {
+      "key": "field_scherma_staff_qualification",
+      "label": "Qualifica",
+      "name": "qualification",
+      "type": "text",
+      "instructions": "Es. Istruttore nazionale.",
+      "required": 0
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "staff"
+      }
+    ]
+  ],
+  "position": "acf_after_title",
+  "style": "default",
+  "label_placement": "top",
+  "active": true,
+  "show_in_rest": 1,
+  "modified": 1793392539
+}
