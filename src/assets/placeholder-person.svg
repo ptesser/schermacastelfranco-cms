@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" aria-hidden="true">
+  <rect width="400" height="500" fill="#E9E9E4"/>
+  <!-- shoulders in fencing jacket -->
+  <path d="M60 500 C70 390 130 345 200 345 C270 345 330 390 340 500 Z" fill="#111111"/>
+  <!-- collar in club red -->
+  <path d="M165 352 L200 392 L235 352 Z" fill="#A94442"/>
+  <!-- neck -->
+  <rect x="178" y="300" width="44" height="56" rx="10" fill="#111111"/>
+  <!-- mask -->
+  <ellipse cx="200" cy="215" rx="88" ry="100" fill="#111111"/>
+  <rect x="146" y="160" width="108" height="118" rx="26" fill="#4A4A45"/>
+  <g stroke="#111111" stroke-width="4" opacity="0.6">
+    <path d="M146 190 H254 M146 220 H254 M146 250 H254"/>
+    <path d="M176 160 V278 M200 160 V278 M224 160 V278"/>
+  </g>
+</svg>
