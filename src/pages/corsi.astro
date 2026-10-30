@@ -1,0 +1,110 @@
+---
+import Card from '../components/ui/Card.astro';
+import CallToAction from '../components/ui/CallToAction.astro';
+import DefinitionList from '../components/ui/DefinitionList.astro';
+import PageHeader from '../components/ui/PageHeader.astro';
+import Section from '../components/ui/Section.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { club, getCourses, getDocuments } from '../lib/content';
+
+const [courses, documents] = await Promise.all([getCourses(), getDocuments()]);
+const enrolmentDocs = documents.filter((doc) => !doc.data.archived && /T1|Regolamento/.test(doc.data.title)).slice(0, 2);
+const firstSlot = club.openingHours[0];
+---
+
+<BaseLayout title="Corsi" description="Corsi di fioretto e spada a Castelfranco Veneto, dal lunedì al venerdì.">
+  <PageHeader title="Corsi di scherma" crumb="Corsi">
+    Ci si allena dal lunedì al venerdì, dalle {firstSlot?.from} alle {firstSlot?.to}, nella sala di {club.venue.address.split(',')[0]} a {club.venue.city}.
+  </PageHeader>
+
+  <Section label="Elenco corsi">
+    <ul class="grid">
+      {
+        courses.map((course) => (
+          <li>
+            <Card as="article">
+              <h2 class="course-title">{course.data.title}</h2>
+              <DefinitionList
+                items={[
+                  { term: 'Età', value: course.data.ageRange },
+                  { term: 'Orari', value: course.data.schedule },
+                  { term: 'Costo', value: course.data.price },
+                  { term: 'Istruttore', value: course.data.instructor },
+                ]}
+              />
+              {course.data.description && <p class="muted">{course.data.description}</p>}
+            </Card>
+          </li>
+        ))
+      }
+    </ul>
+  </Section>
+
+  <Section title="Come iniziare" tone="surface">
+    <div class="start">
+      <ol class="steps">
+        <li>Contatta il Maestro per fissare una lezione di prova.</li>
+        <li>[Cosa portare alla prima lezione]</li>
+        <li>Per iscriverti compila il modello T1 e porta il certificato medico [tipo di certificato].</li>
+      </ol>
+      <div class="stack" style="--stack-gap: 0.75rem">
+        <h3>Moduli utili</h3>
+        {
+          enrolmentDocs.map((doc) => (
+            <a class="doc-link" href={doc.url} download>
+              {doc.data.title}
+              <span class="muted">
+                {doc.data.format}, {doc.data.sizeKb} KB
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </Section>
+
+  <CallToAction title="Vieni a provare una lezione in sala." href="/contatti/" label="Contatta il circolo" />
+</BaseLayout>
+
+<style>
+  .course-title {
+    font-size: 1.75rem;
+  }
+
+  .start {
+    display: grid;
+    gap: var(--space-l);
+  }
+
+  @media (min-width: 60rem) {
+    .start {
+      grid-template-columns: 3fr 2fr;
+    }
+  }
+
+  .steps {
+    display: grid;
+    gap: 0.625rem;
+    margin: 0;
+    padding-inline-start: 1.5rem;
+  }
+
+  .doc-link {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.25rem 0.75rem;
+    min-block-size: 3.5rem;
+    align-items: center;
+    padding: 0.625rem 1.125rem;
+    border: var(--border);
+    border-radius: var(--radius-s);
+    background: var(--color-bg);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .doc-link .muted {
+    font-weight: 400;
+  }
+</style>
