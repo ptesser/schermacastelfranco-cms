@@ -8,7 +8,7 @@
 - [ ] Vector logo.
 - [ ] Current number of members.
 - [ ] Who enters content in WordPress, and with which role.
-- [ ] Gallery: photos in WordPress or external albums? Current albums point to Google+ and Picasa, both closed.
+- [ ] Gallery: 6 albums still open on Google Photos; 13 (Google+, Picasa) are lost. Keep using Google Photos or upload photos to WordPress?
 - [ ] Documents: updated Modello T1 and 5×1000; delete the 2015 and 2016 5×1000 forms?
 - [ ] Statute as a PDF instead of the ZIP.
 - [ ] Active sponsors and updated logos.
