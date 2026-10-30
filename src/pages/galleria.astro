@@ -1,0 +1,32 @@
+---
+import ImageCard from '../components/ImageCard.astro';
+import FormattedDate from '../components/ui/FormattedDate.astro';
+import PageHeader from '../components/ui/PageHeader.astro';
+import Section from '../components/ui/Section.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getAlbums } from '../lib/content';
+
+const albums = await getAlbums();
+---
+
+<BaseLayout title="Galleria" description="Album fotografici delle gare e della vita del Circolo Scherma Castelfranco Veneto.">
+  <PageHeader title="Galleria">Le foto delle gare e della vita in sala, divise per album.</PageHeader>
+
+  <Section label="Album">
+    <ul class="grid">
+      {
+        albums.map((album) => (
+          <li>
+            <ImageCard title={album.data.title} image={album.data.cover} imageAlt={album.data.coverAlt ?? ''} placeholder="Copertina album" imageHeight="12.5rem">
+              {album.data.date && (
+                <p class="muted">
+                  <FormattedDate date={album.data.date} />
+                </p>
+              )}
+            </ImageCard>
+          </li>
+        ))
+      }
+    </ul>
+  </Section>
+</BaseLayout>
