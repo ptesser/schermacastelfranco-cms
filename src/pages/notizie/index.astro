@@ -1,0 +1,18 @@
+---
+import NewsCard from '../../components/NewsCard.astro';
+import PageHeader from '../../components/ui/PageHeader.astro';
+import Section from '../../components/ui/Section.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getNews } from '../../lib/content';
+
+const news = await getNews();
+---
+
+<BaseLayout title="Notizie e gare" description="Risultati delle gare, eventi e comunicazioni del Circolo Scherma Castelfranco Veneto.">
+  <PageHeader title="Notizie e gare">Risultati delle gare, eventi del circolo e comunicazioni agli iscritti.</PageHeader>
+  <Section label="Elenco notizie">
+    <ul class="grid">
+      {news.map((entry) => <li><NewsCard entry={entry} headingLevel={2} showExcerpt /></li>)}
+    </ul>
+  </Section>
+</BaseLayout>
