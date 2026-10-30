@@ -1,24 +1,24 @@
-# Hosting Netsons — situazione verificata il 30/10/2026
+# Netsons hosting — checked on 2026-10-30
 
-| Voce | Valore |
+| Item | Value |
 | --- | --- |
-| Piano | Hosting Web 100 (cPanel), server `hostingweb77.netsons.net` |
-| Scadenza hosting | 27/05/2027 |
-| Scadenza PEC | 09/07/2027 (`schermacastelfranco@pec.netsons.org`) |
-| Disco | 1,49 GB usati su 100 GB |
-| Database MySQL | 0 su 10 |
-| Sottodomini | illimitati |
-| PHP sito attuale | 5.5 (non più supportato dal 2016) |
-| PHP disponibili | 5.1 – 8.5, selezionabili per dominio dal MultiPHP Manager |
-| Email sul dominio | `info@schermacastelfranco.it` |
+| Plan | Hosting Web 100 (cPanel), server `hostingweb77.netsons.net` |
+| Hosting renewal | 2027-05-27 |
+| PEC renewal | 2027-07-09 (`schermacastelfranco@pec.netsons.org`) |
+| Disk | 1.49 GB used of 100 GB |
+| MySQL databases | 0 of 10 |
+| Subdomains | unlimited |
+| PHP on current site | 5.5 (end of life since 2016) |
+| PHP available | 5.1 – 8.5, per domain via MultiPHP Manager |
+| Mailboxes on the domain | `info@schermacastelfranco.it` |
 
-## Passi per il pannello
+## Admin panel setup
 
-1. cPanel › Domains › Create A New Domain: `cms.schermacastelfranco.it`, cartella `cms.schermacastelfranco.it` (fuori da `public_html`).
-2. MultiPHP Manager: `cms.schermacastelfranco.it` su PHP 8.4. Il dominio principale resta su 5.5 finché il sito vecchio è online.
-3. SSL: certificato per `cms.` (AutoSSL o Let's Encrypt).
-4. Installazione WordPress su `cms.`, lingua italiana.
+1. cPanel › Domains › Create A New Domain: `cms.schermacastelfranco.it`, document root `cms.schermacastelfranco.it` (outside `public_html`).
+2. MultiPHP Manager: set `cms.schermacastelfranco.it` to PHP 8.4. Keep the main domain on 5.5 while the old site is online.
+3. SSL: certificate for `cms.` (AutoSSL or Let's Encrypt).
+4. Install WordPress on `cms.`, Italian locale.
 
-## Attenzione ai DNS
+## DNS warning
 
-La casella `info@` usa i record MX di Netsons. Se si spostano i nameserver su Cloudflare, copiare prima tutti i record, MX compresi. Strada consigliata: solo `www` in CNAME verso Cloudflare Pages.
+`info@` relies on the Netsons MX records. If nameservers move to Cloudflare, copy every record first, MX included. Recommended path: only `www` as a CNAME to Cloudflare Pages.

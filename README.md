@@ -1,32 +1,32 @@
 # schermacastelfranco-cms
 
-Nuovo sito del **Circolo Scherma Castelfranco Veneto A.S.D.** (schermacastelfranco.it).
+New website for **Circolo Scherma Castelfranco Veneto A.S.D.** (schermacastelfranco.it).
 
-## Architettura
+## Architecture
 
-| Pezzo | Tecnologia | Dove |
+| Part | Technology | Where |
 | --- | --- | --- |
-| Pannello di gestione | WordPress "headless" (solo pannello, nessun tema pubblico) | Netsons, `cms.schermacastelfranco.it` |
-| Sito pubblico | Astro, pagine statiche, mobile first, WCAG 2.2 AA | Cloudflare Pages |
-| Aggiornamento | A ogni pubblicazione WordPress richiama il deploy hook di Cloudflare | — |
+| Admin panel | Headless WordPress (admin only, no public theme) | Netsons, `cms.schermacastelfranco.it` |
+| Public site | Astro static pages, mobile first, WCAG 2.2 AA | Cloudflare Pages |
+| Updates | WordPress calls the Cloudflare deploy hook on publish | — |
 
-Dettagli in [docs/architettura.md](docs/architettura.md).
+See [docs/architecture.md](docs/architecture.md).
 
-## Contenuto del repository
+## Repository layout
 
 ```
-docs/                  decisioni, tipi di contenuto, hosting, cose da raccogliere
-migrazione/            tutto il contenuto del sito attuale, pronto da caricare in WordPress
-  notizie/             7 articoli (2015–2016) in Markdown con dati in testa
-  dati/                circolo, corsi, staff, documenti, album, sponsor, link esterni (JSON)
-  media/gare/          foto degli articoli
-  media/documenti/     PDF, DOC e ZIP scaricabili dal sito attuale
-  media/struttura/     intestazione, ritratto, foto storiche, loghi sponsor
+docs/                 decisions, content types, hosting, content to collect
+migration/            all content from the current site, ready to import into WordPress
+  news/               7 articles (2015–2016), Markdown with front matter
+  data/               club, courses, staff, documents, albums, sponsors, links (JSON)
+  media/races/        article photos
+  media/documents/    PDF, DOC and ZIP downloads from the current site
+  media/site/         header, portrait, historic photos, sponsor logos
 ```
 
-Il sito Astro (`src/`) verrà aggiunto nella fase di sviluppo.
+Repository, code and docs are in English; website copy is in Italian.
 
-## Riferimenti
+## References
 
-- Proposta: https://claude.ai/artifact/JsCAGNJGoD6RhEw298ZZJp
+- Proposal: https://claude.ai/artifact/JsCAGNJGoD6RhEw298ZZJp
 - Mockup: https://claude.ai/artifact/6oaS3BzPRfmN6JEt7Uj7D5
