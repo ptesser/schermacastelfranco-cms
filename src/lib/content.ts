@@ -84,7 +84,7 @@ const clubSchema = z.object({
     name: z.string(),
     address: z.string(),
     city: z.string(),
-    mapsUrl: z.string().url(),
+    mapsUrl: z.url(),
   }),
   openingHours: z.array(z.object({ day: z.string(), from: z.string(), to: z.string() })),
 });

@@ -32,7 +32,7 @@ const news = defineCollection({
         )
         .optional(),
       originalTitle: z.string().optional(),
-      source: z.string().url().optional(),
+      source: z.url().optional(),
     }),
 });
 
@@ -94,7 +94,7 @@ const sponsors = defineCollection({
   schema: ({ image }) =>
     z.object({
       name: z.string(),
-      url: z.string().url(),
+      url: z.url(),
       logo: image(),
       order: z.number().default(0),
     }),
@@ -104,7 +104,7 @@ const links = defineCollection({
   loader: file('./migration/data/links.json'),
   schema: z.object({
     name: z.string(),
-    url: z.string().url(),
+    url: z.url(),
   }),
 });
 
