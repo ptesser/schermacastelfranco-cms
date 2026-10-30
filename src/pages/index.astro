@@ -1,3 +1,250 @@
 ---
+import { Image } from 'astro:assets';
+import NewsCard from '../components/NewsCard.astro';
+import Button from '../components/ui/Button.astro';
+import CallToAction from '../components/ui/CallToAction.astro';
+import Card from '../components/ui/Card.astro';
+import MediaImage from '../components/ui/MediaImage.astro';
+import Section from '../components/ui/Section.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { club, getLatestNews, getSponsors, telHref } from '../lib/content';
+import fencerBanner from '../../migration/media/site/banner-schermitore.png';
+import boutPhoto from '../../migration/media/site/storia2.jpg';
+
+const [news, sponsors] = await Promise.all([getLatestNews(3), getSponsors()]);
+const { venue, contacts, openingHours } = club;
+const firstSlot = openingHours[0];
 ---
-<p>Circolo Scherma Castelfranco Veneto</p>
+
+<BaseLayout>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__inner">
+      <div class="hero__text">
+        <p class="hero__eyebrow">{club.legalForm} · dal 2004</p>
+        <h1 id="hero-title">Circolo Scherma <span>Castelfranco Veneto</span></h1>
+        <p class="hero__lead">
+          Fioretto e spada. Corsi dal lunedì al venerdì, {firstSlot?.from}–{firstSlot?.to}, nella sala di via Lovara.
+        </p>
+        <div class="hero__actions">
+          <Button href="/contatti/" class="hero__primary">Prenota una lezione di prova</Button>
+          <Button href="/corsi/" variant="secondary">Scopri i corsi</Button>
+        </div>
+      </div>
+      <Image
+        src={fencerBanner}
+        alt="Uno schermitore in affondo con la lama tesa, su fondo nero"
+        widths={[600, 900, 1200]}
+        sizes="(min-width: 60rem) 50vw, 100vw"
+        loading="eager"
+        fetchpriority="high"
+        class="hero__image"
+      />
+    </div>
+  </section>
+
+  <Section label="Informazioni pratiche">
+    <ul class="grid" style="--grid-min: 15rem; --grid-gap: 1rem">
+      <li>
+        <Card>
+          <h2 class="info-title">Dove</h2>
+          <p>{venue.name}, {venue.address}<br />{venue.city}</p>
+          <a href={venue.mapsUrl}>Apri in Google Maps</a>
+        </Card>
+      </li>
+      <li>
+        <Card>
+          <h2 class="info-title">Quando</h2>
+          <p>Lunedì – venerdì<br />{firstSlot?.from} – {firstSlot?.to}</p>
+        </Card>
+      </li>
+      <li>
+        <Card>
+          <h2 class="info-title">Contatti</h2>
+          <p>
+            <a href={telHref(contacts.phone)}>{contacts.phone}</a><br />
+            <a href={`mailto:${contacts.email}`}>{contacts.email}</a>
+          </p>
+        </Card>
+      </li>
+    </ul>
+  </Section>
+
+  <Section title="Notizie e gare" tone="surface">
+    <a slot="actions" href="/notizie/" class="more-link">Tutte le notizie e gare</a>
+    <ul class="grid">
+      {news.map((entry) => <li><NewsCard entry={entry} /></li>)}
+    </ul>
+  </Section>
+
+  <Section title="Il circolo">
+    <div class="split">
+      <div class="stack">
+        <p>
+          Fondato il 2 novembre 2004 dal Maestro Giuseppe Tagliariol con il Maestro Davide Cenedese. Dal 2007
+          organizza il Trofeo Città di Castelfranco Veneto.
+        </p>
+        <p class="links">
+          <a href="/il-circolo/">La nostra storia</a>
+          <a href="/il-circolo/#staff">Lo staff</a>
+        </p>
+      </div>
+      <MediaImage
+        src={boutPhoto}
+        alt="Due schermitori durante un assalto in pedana"
+        height="clamp(15rem, 10rem + 15vw, 24rem)"
+        sizes="(min-width: 60rem) 45vw, 100vw"
+        class="rounded"
+      />
+    </div>
+  </Section>
+
+  <CallToAction title="Vieni a provare una lezione in sala." href="/contatti/" label="Contatta il circolo" />
+
+  <Section title="Ci sostengono" id="sponsor">
+    <ul class="grid sponsors" style="--grid-min: 9rem; --grid-gap: 0.875rem">
+      {
+        sponsors.map((sponsor) => (
+          <li>
+            <a class="sponsor" href={sponsor.data.url}>
+              <Image src={sponsor.data.logo} alt={sponsor.data.name} height={52} loading="lazy" />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </Section>
+</BaseLayout>
+
+<style>
+  .hero {
+    background: #000;
+    color: #fff;
+    border-block-end: var(--border);
+  }
+
+  .hero__inner {
+    display: flex;
+    flex-direction: column-reverse;
+    max-inline-size: var(--container);
+    margin-inline: auto;
+  }
+
+  .hero__text {
+    display: grid;
+    gap: 1.375rem;
+    padding: 2rem var(--gutter) 2.75rem;
+  }
+
+  .hero__eyebrow {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .hero h1 {
+    font-style: italic;
+  }
+
+  .hero h1 span {
+    color: var(--color-accent-on-dark);
+  }
+
+  .hero__lead {
+    max-inline-size: 32rem;
+    font-size: var(--text-lg);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.875rem;
+  }
+
+  .hero__actions :global(.button) {
+    flex: 1 1 14rem;
+  }
+
+  .hero :global(.hero__primary) {
+    border-color: #fff;
+  }
+
+  .hero :global(:focus-visible) {
+    outline-color: #fff;
+  }
+
+  .hero__image {
+    inline-size: 100%;
+    block-size: clamp(10.5rem, 6rem + 20vw, 19rem);
+    object-fit: cover;
+    object-position: 75% center;
+  }
+
+  @media (min-width: 60rem) {
+    .hero__inner {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .hero__text,
+    .hero__image {
+      flex: 1 1 50%;
+    }
+  }
+
+  .info-title {
+    font-size: 1.3125rem;
+  }
+
+  .more-link {
+    display: inline-block;
+    padding-block: 0.625rem;
+    font-weight: 700;
+  }
+
+  .split {
+    display: grid;
+    gap: var(--space-l);
+    align-items: center;
+  }
+
+  @media (min-width: 60rem) {
+    .split {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    font-weight: 700;
+  }
+
+  .links a {
+    display: inline-block;
+    padding-block: 0.625rem;
+  }
+
+  .split :global(.rounded) {
+    border: var(--border);
+    border-radius: var(--radius-l);
+  }
+
+  .sponsor {
+    display: grid;
+    place-items: center;
+    block-size: 5.25rem;
+    padding: 0.75rem;
+    border: var(--border);
+    border-radius: var(--radius-s);
+    background: var(--color-surface);
+  }
+
+  .sponsor img {
+    max-inline-size: 100%;
+    max-block-size: 3.25rem;
+    inline-size: auto;
+    object-fit: contain;
+  }
+</style>
