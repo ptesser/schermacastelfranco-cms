@@ -1,0 +1,46 @@
+---
+import type { ImageMetadata } from 'astro';
+import Card from './ui/Card.astro';
+import MediaImage from './ui/MediaImage.astro';
+
+interface Props {
+  title: string;
+  image?: ImageMetadata | null;
+  imageAlt?: string | null;
+  placeholder?: string;
+  /** Makes the title a link. */
+  href?: string;
+  imageHeight?: string;
+}
+
+const { title, image, imageAlt, placeholder, href, imageHeight = '14rem' } = Astro.props;
+---
+
+<Card as="article" flush>
+  <MediaImage src={image} alt={imageAlt} placeholder={placeholder} height={imageHeight} class="image-card__media" />
+  <div class="image-card__body">
+    <h3 class="image-card__title">{href ? <a href={href}>{title}</a> : title}</h3>
+    <slot />
+  </div>
+</Card>
+
+<style>
+  .image-card__body {
+    display: grid;
+    gap: 0.25rem;
+    padding: 1.125rem;
+    border-block-start: var(--border);
+  }
+
+  .image-card__title {
+    font-size: 1.25rem;
+  }
+
+  .image-card__title a {
+    text-decoration: none;
+  }
+
+  :global(.image-card__media) {
+    object-position: center 20%;
+  }
+</style>

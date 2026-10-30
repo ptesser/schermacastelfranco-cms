@@ -1,0 +1,66 @@
+---
+import { newsCategoryLabels, type NewsEntry } from '../lib/content';
+import Badge from './ui/Badge.astro';
+import Card from './ui/Card.astro';
+import FormattedDate from './ui/FormattedDate.astro';
+import MediaImage from './ui/MediaImage.astro';
+
+interface Props {
+  entry: NewsEntry;
+  /** Heading level inside the card, to fit the surrounding outline. */
+  headingLevel?: 2 | 3;
+  showExcerpt?: boolean;
+}
+
+const { entry, headingLevel = 3, showExcerpt = false } = Astro.props;
+const { title, date, location, category, image, imageAlt } = entry.data;
+const Heading = `h${headingLevel}` as const;
+const excerpt = showExcerpt ? toExcerpt(entry.body ?? '') : '';
+
+function toExcerpt(text: string, maxLength = 160) {
+  const plain = text.replace(/\s+/g, ' ').trim();
+  if (plain.length <= maxLength) return plain;
+  return `${plain.slice(0, plain.lastIndexOf(' ', maxLength))}…`;
+}
+---
+
+<Card as="article" flush>
+  <MediaImage src={image} alt={imageAlt} />
+  <div class="news-card__body">
+    <p class="news-card__meta">
+      <Badge>{newsCategoryLabels[category]}</Badge>
+      <FormattedDate date={date} format="short" /> · {location}
+    </p>
+    <Heading class="news-card__title">
+      <a href={`/notizie/${entry.id}/`}>{title}</a>
+    </Heading>
+    {excerpt && <p class="muted">{excerpt}</p>}
+  </div>
+</Card>
+
+<style>
+  .news-card__body {
+    display: grid;
+    gap: 0.625rem;
+    padding: 1.125rem;
+    border-block-start: var(--border);
+  }
+
+  .news-card__meta {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+  }
+
+  .news-card__title {
+    font-size: 1.3125rem;
+    line-height: 1.25;
+  }
+
+  .news-card__title a {
+    text-decoration: none;
+  }
+
+  .news-card__title a:hover {
+    text-decoration: underline;
+  }
+</style>
