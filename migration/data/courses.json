@@ -1,0 +1,35 @@
+[
+  {
+    "id": "fioretto",
+    "title": "Fioretto",
+    "weapon": "fioretto",
+    "ageRange": null,
+    "schedule": null,
+    "price": null,
+    "instructor": "Giuseppe Tagliariol",
+    "description": null,
+    "order": 1
+  },
+  {
+    "id": "spada",
+    "title": "Spada",
+    "weapon": "spada",
+    "ageRange": null,
+    "schedule": null,
+    "price": null,
+    "instructor": "Giuseppe Tagliariol",
+    "description": null,
+    "order": 2
+  },
+  {
+    "id": "adulti",
+    "title": "Corso serale adulti",
+    "weapon": null,
+    "ageRange": "Adulti",
+    "schedule": null,
+    "price": null,
+    "instructor": null,
+    "description": "Mentioned on the History page: confirm whether it is still running",
+    "order": 3
+  }
+]

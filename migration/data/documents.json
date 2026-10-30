@@ -1,0 +1,101 @@
+[
+  {
+    "id": "5-per-mille-2020",
+    "title": "5×1000 — 2020",
+    "year": 2020,
+    "description": "Vai al prossimo documento",
+    "file": "../media/documents/5_per_1000_2020.pdf",
+    "format": "PDF",
+    "sizeKb": 50,
+    "archived": false,
+    "originalUrl": "https://schermacastelfranco.it/view/document/5_per_1000_2020.pdf"
+  },
+  {
+    "id": "modello-t1-2020",
+    "title": "Modello T1 — tesserati olimpici 2019/2020",
+    "year": 2020,
+    "description": "Vai al prossimo documento",
+    "file": "../media/documents/1_modello_T1_scheda_anagrafica_nuovo_tesserato_olimpico_2019_2020.pdf",
+    "format": "PDF",
+    "sizeKb": 50,
+    "archived": false,
+    "originalUrl": "https://schermacastelfranco.it/view/document/1_modello_T1_scheda_anagrafica_nuovo_tesserato_olimpico_2019_2020.pdf"
+  },
+  {
+    "id": "dichiarazione-di-spese-nuova",
+    "title": "Dichiarazione di spese",
+    "year": null,
+    "description": "Vai al prossimo documento",
+    "file": "../media/documents/nuova-dichiarazione-spese.pdf",
+    "format": "PDF",
+    "sizeKb": 50,
+    "archived": false,
+    "originalUrl": "https://schermacastelfranco.it/view/document/nuova-dichiarazione-spese.pdf"
+  },
+  {
+    "id": "modello-t1",
+    "title": "Modello T1",
+    "year": null,
+    "description": "Vai al prossimo documento",
+    "file": "../media/documents/mod-t1.pdf",
+    "format": "PDF",
+    "sizeKb": 50,
+    "archived": false,
+    "originalUrl": "https://schermacastelfranco.it/view/document/mod-t1.pdf"
+  },
+  {
+    "id": "5-per-mille-2016",
+    "title": "5×1000 — 2016",
+    "year": 2016,
+    "description": "Vai al prossimo documento",
+    "file": "../media/documents/5_per_1000_2016.doc",
+    "format": "DOC",
+    "sizeKb": 33,
+    "archived": true,
+    "originalUrl": "https://schermacastelfranco.it/view/document/5_per_1000_2016.doc"
+  },
+  {
+    "id": "5-per-mille-2015",
+    "title": "5×1000 — 2015",
+    "year": 2015,
+    "description": "Vai al prossimo documento",
+    "file": "../media/documents/5_per_1000_2015.doc",
+    "format": "DOC",
+    "sizeKb": 33,
+    "archived": true,
+    "originalUrl": "https://schermacastelfranco.it/view/document/5_per_1000_2015.doc"
+  },
+  {
+    "id": "modello-generale-divise",
+    "title": "Modello generale divise",
+    "year": null,
+    "description": "Vai al prossimo documento",
+    "file": "../media/documents/mod-divise-generale.pdf",
+    "format": "PDF",
+    "sizeKb": 162,
+    "archived": false,
+    "originalUrl": "https://schermacastelfranco.it/view/document/mod-divise-generale.pdf"
+  },
+  {
+    "id": "statuto-federale",
+    "title": "Statuto federale",
+    "year": null,
+    "description": "Vai al prossimo documento",
+    "file": "../media/documents/statuto-leggero.zip",
+    "format": "ZIP",
+    "sizeKb": 2600,
+    "archived": false,
+    "originalUrl": "https://schermacastelfranco.it/view/document/statuto-leggero.zip"
+  },
+  {
+    "id": "regolamento-interno",
+    "title": "Regolamento interno",
+    "year": null,
+    "description": "Vai al prossimo documento",
+    "file": "../media/documents/regolamento-interno.pdf",
+    "format": "PDF",
+    "sizeKb": 246,
+    "archived": false,
+    "originalUrl": "https://schermacastelfranco.it/view/document/regolamento-interno.pdf"
+  }
+]

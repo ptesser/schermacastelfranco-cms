@@ -1,0 +1,31 @@
+[
+  {
+    "id": "goppion-caffe",
+    "name": "Goppion Caffè",
+    "url": "http://www.goppioncaffe.it",
+    "logo": "../media/site/goppion-logo.gif",
+    "order": 1
+  },
+  {
+    "id": "carmimari",
+    "name": "Carmimari",
+    "url": "http://www.carmimari.com",
+    "logo": "../media/site/carmimari-logo.jpg",
+    "order": 2
+  },
+  {
+    "id": "gnocchi-master",
+    "name": "Gnocchi Master",
+    "url": "http://www.gnocchimaster.com",
+    "logo": "../media/site/master-logo.jpg",
+    "order": 3
+  },
+  {
+    "id": "radio-bella-monella",
+    "name": "Radio Bella & Monella",
+    "url": "http://www.belllaemonella.it/restiling/index.php",
+    "logo": "../media/site/bella-monella-logo.png",
+    "order": 4,
+    "note": "Original URL has typos (belllaemonella, restiling): check"
+  }
+]

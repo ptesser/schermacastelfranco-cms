@@ -1,0 +1,22 @@
+[
+  {
+    "id": "giuseppe-tagliariol",
+    "name": "Giuseppe Tagliariol",
+    "role": "Presidente e Maestro",
+    "qualification": "Istruttore Nazionale",
+    "photo": "../media/site/presidente-tagliariol.jpg",
+    "photoAlt": "Ritratto del Maestro Giuseppe Tagliariol",
+    "bio": "Fondatore del circolo, Istruttore nazionale.",
+    "order": 1
+  },
+  {
+    "id": "davide-cenedese",
+    "name": "Davide Cenedese",
+    "role": "Maestro",
+    "qualification": null,
+    "photo": null,
+    "photoAlt": null,
+    "bio": "Cofondatore del circolo. [Current role to be confirmed]",
+    "order": 2
+  }
+]
