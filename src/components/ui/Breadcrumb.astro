@@ -1,0 +1,37 @@
+---
+import type { NavItem } from '../../config/navigation';
+
+interface Props {
+  /** Parent pages, from the home page down. The current page is `current`. */
+  items?: NavItem[];
+  current: string;
+}
+
+const { items = [], current } = Astro.props;
+const trail = [{ label: 'Home', href: '/' }, ...items];
+---
+
+<nav aria-label="Percorso">
+  <ol class="breadcrumb">
+    {trail.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+    <li aria-current="page">{current}</li>
+  </ol>
+</nav>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: var(--color-text-muted);
+    font-size: 1rem;
+  }
+
+  .breadcrumb li + li::before {
+    content: '/';
+    margin-inline-end: 0.5rem;
+  }
+</style>

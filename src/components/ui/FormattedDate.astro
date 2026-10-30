@@ -1,0 +1,16 @@
+---
+interface Props {
+  date: Date;
+  /** `long`: 14 novembre 2015, `short`: 14 nov 2015 */
+  format?: 'long' | 'short';
+}
+
+const { date, format = 'long' } = Astro.props;
+const label = new Intl.DateTimeFormat('it-IT', {
+  day: 'numeric',
+  month: format === 'long' ? 'long' : 'short',
+  year: 'numeric',
+}).format(date);
+---
+
+<time datetime={date.toISOString().slice(0, 10)}>{label}</time>

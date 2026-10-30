@@ -1,0 +1,38 @@
+---
+interface Props {
+  items: { term: string; value?: string | null }[];
+  /** Text shown for empty values. */
+  fallback?: string;
+}
+
+const { items, fallback = '[da definire]' } = Astro.props;
+---
+
+<dl class="definition-list">
+  {
+    items.map(({ term, value }) => (
+      <>
+        <dt>{term}</dt>
+        <dd>{value ?? fallback}</dd>
+      </>
+    ))
+  }
+</dl>
+
+<style>
+  .definition-list {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.625rem 1rem;
+    margin: 0;
+    font-size: 1.0625rem;
+  }
+
+  dt {
+    color: var(--color-text-muted);
+  }
+
+  dd {
+    margin: 0;
+  }
+</style>

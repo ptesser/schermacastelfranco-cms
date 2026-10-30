@@ -1,0 +1,33 @@
+---
+import type { NavItem } from '../../config/navigation';
+import Breadcrumb from './Breadcrumb.astro';
+
+interface Props {
+  title: string;
+  /** Short label for the breadcrumb, defaults to the title. */
+  crumb?: string;
+  parents?: NavItem[];
+}
+
+const { title, crumb = title, parents } = Astro.props;
+---
+
+<header class="container page-header">
+  <Breadcrumb items={parents} current={crumb} />
+  <h1>{title}</h1>
+  {Astro.slots.has('default') && <p class="page-header__intro"><slot /></p>}
+</header>
+
+<style>
+  .page-header {
+    display: grid;
+    gap: 0.875rem;
+    padding-block-start: 2rem;
+  }
+
+  .page-header__intro {
+    max-inline-size: var(--measure);
+    color: var(--color-text-muted);
+    font-size: var(--text-lg);
+  }
+</style>

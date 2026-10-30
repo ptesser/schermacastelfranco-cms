@@ -1,0 +1,28 @@
+---
+interface Props {
+  tone?: 'accent' | 'dark';
+}
+
+const { tone = 'accent' } = Astro.props;
+---
+
+<span class:list={['badge', `badge--${tone}`]}><slot /></span>
+
+<style>
+  .badge {
+    display: inline-block;
+    padding: 0.125rem 0.625rem;
+    border-radius: var(--radius-pill);
+    color: #fff;
+    font-size: var(--text-sm);
+    font-weight: 700;
+  }
+
+  .badge--accent {
+    background: var(--color-accent);
+  }
+
+  .badge--dark {
+    background: var(--color-text);
+  }
+</style>

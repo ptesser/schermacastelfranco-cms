@@ -1,0 +1,75 @@
+---
+interface Props {
+  /** Visible heading. Omit and pass `label` for sections without a heading. */
+  title?: string;
+  label?: string;
+  id?: string;
+  tone?: 'plain' | 'surface' | 'accent';
+}
+
+const { title, label, id = title ? slug(title) : undefined, tone = 'plain' } = Astro.props;
+const headingId = title && id ? `${id}-title` : undefined;
+
+function slug(text: string) {
+  return text
+    .normalize('NFKD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+---
+
+<section
+  id={id}
+  class:list={['section', `section--${tone}`]}
+  aria-labelledby={headingId}
+  aria-label={headingId ? undefined : label}
+>
+  <div class="container section__inner">
+    {
+      (title || Astro.slots.has('actions')) && (
+        <div class="section__head">
+          {title && <h2 id={headingId}>{title}</h2>}
+          <slot name="actions" />
+        </div>
+      )
+    }
+    <slot />
+  </div>
+</section>
+
+<style>
+  .section__inner {
+    display: grid;
+    gap: var(--space-m);
+    padding-block: var(--space-l);
+  }
+
+  .section__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+  }
+
+  .section--surface {
+    background: var(--color-surface);
+    border-block: var(--border);
+  }
+
+  .section--accent {
+    background: var(--color-accent);
+    color: #fff;
+    border-block: var(--border);
+  }
+
+  .section--accent :global(a:not(.button)) {
+    color: #fff;
+  }
+
+  .section--accent :global(:focus-visible) {
+    outline-color: #fff;
+  }
+</style>

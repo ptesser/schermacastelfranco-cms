@@ -1,0 +1,36 @@
+---
+import type { HTMLTag } from 'astro/types';
+
+interface Props {
+  as?: HTMLTag;
+  /** Remove inner padding, e.g. when the card starts with an image. */
+  flush?: boolean;
+  dashed?: boolean;
+}
+
+const { as: Tag = 'div', flush = false, dashed = false } = Astro.props;
+---
+
+<Tag class:list={['card', { 'card--flush': flush, 'card--dashed': dashed }]}><slot /></Tag>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    padding: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+    border: var(--border);
+    border-radius: var(--radius-m);
+    background: var(--color-surface);
+  }
+
+  .card--flush {
+    gap: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .card--dashed {
+    border-style: dashed;
+  }
+</style>
