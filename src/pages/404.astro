@@ -1,0 +1,13 @@
+---
+import Button from '../components/ui/Button.astro';
+import PageHeader from '../components/ui/PageHeader.astro';
+import Section from '../components/ui/Section.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Pagina non trovata">
+  <PageHeader title="Pagina non trovata">La pagina che cerchi non esiste o è stata spostata.</PageHeader>
+  <Section label="Collegamenti utili">
+    <p><Button href="/">Torna alla home</Button></p>
+  </Section>
+</BaseLayout>

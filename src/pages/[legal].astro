@@ -1,0 +1,22 @@
+---
+import PageHeader from '../components/ui/PageHeader.astro';
+import Section from '../components/ui/Section.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { legalNav } from '../config/navigation';
+
+export function getStaticPaths() {
+  return legalNav.map((item) => ({
+    params: { legal: item.href.replaceAll('/', '') },
+    props: { title: item.label },
+  }));
+}
+
+const { title } = Astro.props;
+---
+
+<BaseLayout title={title}>
+  <PageHeader title={title} />
+  <Section label={title}>
+    <p class="muted">[Testo da redigere con il circolo]</p>
+  </Section>
+</BaseLayout>
