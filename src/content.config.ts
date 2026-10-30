@@ -109,4 +109,14 @@ const links = defineCollection({
   }),
 });
 
-export const collections = { news, courses, staff, documents, albums, sponsors, links };
+/** Site pages written in Markdown (privacy, accessibility). Not managed in WordPress. */
+const legal = defineCollection({
+  loader: glob({ pattern: '*.md', base: './src/content/legal' }),
+  schema: z.object({
+    title: z.string(),
+    updated: z.coerce.date(),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { news, courses, staff, documents, albums, sponsors, links, legal };
