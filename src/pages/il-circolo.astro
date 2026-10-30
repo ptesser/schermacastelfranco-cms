@@ -1,0 +1,114 @@
+---
+import ImageCard from '../components/ImageCard.astro';
+import MediaImage from '../components/ui/MediaImage.astro';
+import PageHeader from '../components/ui/PageHeader.astro';
+import Section from '../components/ui/Section.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { club, getStaff } from '../lib/content';
+
+const staff = await getStaff();
+
+const timeline = [
+  {
+    year: '2004',
+    text: "2 novembre: il Maestro Giuseppe Tagliariol fonda il circolo con il Maestro Davide Cenedese. Prima sede in una palestra dell'Istituto tecnico «A. Martini», in via Verdi 40, concessa dal Comune.",
+  },
+  { year: '2007', text: 'Ottobre: primo Trofeo Città di Castelfranco Veneto, gara interregionale con il patrocinio del Comune.' },
+  { year: '[anno]', text: 'Apertura della nuova sala scherma in via Lovara. [da confermare]' },
+  { year: 'Oggi', text: '[Numero] iscritti, risultati nelle categorie giovanili a livello regionale e nazionale.' },
+];
+---
+
+<BaseLayout title="Il circolo" description="Storia e staff del Circolo Scherma Castelfranco Veneto, attivo dal 2004.">
+  <PageHeader title="Il circolo">{club.legalForm} di scherma a Castelfranco Veneto, attiva dal 2004.</PageHeader>
+
+  <Section title="La nostra storia" id="storia">
+    <ol class="timeline">
+      {
+        timeline.map((item) => (
+          <li>
+            <span class="timeline__year">{item.year}</span>
+            <p>{item.text}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </Section>
+
+  <Section title="Staff" id="staff" tone="surface">
+    <ul class="grid" style="--grid-min: 15rem">
+      {
+        staff.map((person) => (
+          <li>
+            <ImageCard title={person.data.name} image={person.data.photo} imageAlt={person.data.photoAlt} placeholder="Foto">
+              <p class="role">{person.data.role}</p>
+              {person.data.bio && <p class="muted">{person.data.bio}</p>}
+            </ImageCard>
+          </li>
+        ))
+      }
+    </ul>
+  </Section>
+
+  <Section title="La sala" id="sala">
+    <div class="split">
+      <div class="stack">
+        <p>{club.venue.name}, {club.venue.address}, {club.venue.city}. [Numero di pedane e servizi]</p>
+        <p><a href="/contatti/">Come raggiungerci</a></p>
+      </div>
+      <MediaImage placeholder="Foto della sala" height="clamp(14rem, 10rem + 10vw, 19rem)" />
+    </div>
+  </Section>
+</BaseLayout>
+
+<style>
+  .timeline {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-block-start: var(--border);
+  }
+
+  .timeline li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.75rem;
+    padding-block: 1.25rem;
+    border-block-end: var(--border);
+  }
+
+  .timeline__year {
+    flex: 0 0 7.5rem;
+    color: var(--color-accent);
+    font-size: clamp(1.625rem, 1.25rem + 1vw, 2rem);
+    font-weight: 800;
+    line-height: 1.1;
+  }
+
+  .timeline p {
+    flex: 1 1 22rem;
+    max-inline-size: var(--measure);
+  }
+
+  .role {
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+
+  .split {
+    display: grid;
+    gap: var(--space-l);
+    align-items: center;
+  }
+
+  @media (min-width: 60rem) {
+    .split {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .split :global(.media-image) {
+    border: var(--border);
+    border-radius: var(--radius-l);
+  }
+</style>
