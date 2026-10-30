@@ -12,6 +12,42 @@ New website for **Circolo Scherma Castelfranco Veneto A.S.D.** (schermacastelfra
 
 See [docs/architecture.md](docs/architecture.md).
 
+## Development
+
+Requires Node 22 (see `.nvmrc`).
+
+```sh
+npm install
+npm run dev      # http://localhost:4321
+npm run check    # type and template checks
+npm run build    # static site in dist/
+```
+
+## Deploy (Cloudflare Pages)
+
+| Setting | Value |
+| --- | --- |
+| Framework preset | Astro |
+| Build command | `npm run build` |
+| Output directory | `dist` |
+| Node version | `NODE_VERSION=22` |
+
+Create a deploy hook in Pages (Settings › Builds › Deploy hooks) and add it to WordPress via the WP Webhooks plugin, so every publish rebuilds the site.
+
+## Code structure
+
+```
+src/
+  config/navigation.ts   menu and legal links
+  content.config.ts      collection schemas and loaders (only file to change when switching to WordPress)
+  lib/content.ts         data helpers used by pages; pages never query collections directly
+  layouts/BaseLayout     html shell, skip link, header, footer
+  components/ui/         generic building blocks (Button, Card, Section, PageHeader, MediaImage, ...)
+  components/            domain components (NewsCard, ImageCard)
+  pages/                 one file per route
+  styles/global.css      design tokens and base styles
+```
+
 ## Repository layout
 
 ```
@@ -24,7 +60,7 @@ migration/            all content from the current site, ready to import into Wo
   media/site/         header, portrait, historic photos, sponsor logos
 ```
 
-Repository, code and docs are in English; website copy is in Italian.
+Repository, code, docs and commits (Conventional Commits) are in English; website copy is in Italian.
 
 ## References
 
