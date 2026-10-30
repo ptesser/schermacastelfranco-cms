@@ -1,0 +1,13 @@
+---
+titolo_originale: "OPEN REGIONALE X OPEN NAZIONALE!"
+titolo: "[da riscrivere in minuscolo]"
+data: "2016-12-11"
+luogo: "Montecchio Maggiore (VI)"
+categoria: "Gara"
+immagine: "../media/gare/montecchio-11.12.2016.jpg"
+alt: "[descrizione della foto]"
+fonte: "https://schermacastelfranco.it/controller/articlesPageCtrl.php?from=articles&id=0"
+---
+
+Strepitosa vittoria di Riccardo Macchion a Montecchio Maggiore (VI) domenica 11 dicembre nel secondo Open regionale di spada. Questa gara determinava quali erano gli spadisti (maschi e femmine) veneti che potranno partecipare al secondo Open nazionale di Pesaro che si svolgerà ad inizio marzo. Un centinaio di maschi e ottanta donne si sono sfidati per, rispettivamente, sedici e quattordici posti. Macchion parte numero due dell’Eliminazione Diretta, una volta completato il Girone di qualifica all’Italiana; da qui – con una serie di incontri da manuale – arriva nella zona podio per cercare di portarsi a casa la medaglia più pesante! La semifinale contro l’ostico bolzanino Lauria ha fatto vedere come Macchion, malgrado la sua assenza dalla sala Scherma di Castelfranco Veneto per motivi universitari, non abbia minimamente risentito di tale fatto, permettendogli di gestire sempre al meglio l’incontro (finito poi col punteggio di 15-13 per il castellano). Stesso scenario quello a cui hanno assistito gli spettatori nella finalissima contro l’altrettanto bravo veronese della Bentegodi Riccardo Masarin. Anche qui Macchion ha dato ampio lustro con azioni tecniche degne dei migliori spadisti di calibro assoluto, tenendo sempre a bada il mai domo Masarin! Anche qui il punteggio finale di 15-11 fa capire il tutto! Altro terzo posto “di riguardo” è quello conquistato dal trevigiano della Scherma Treviso Gianluca Casaro. A questa gara hanno partecipato, anche se con minor fortuna, (in quanto non sono riusciti a qualificarsi per l’Open di Pesaro)Federico Dal Zuffo, Ampelio Macchion e Tommaso Vian (quest’ultimo al rientro nelle competizioni dopo uno stop di quattro anni!)
+Nella gara femminile buona davvero la prova di Laura Pagani che malgrado non abbia potuto preparare con la dovuta costanza questa gara a causa di molteplici impegni scolastici, ha decorosamente portato a termine la sua fatica finendo ottava assoluta al termine della prova! (questa posizione finale di classifica le permette di andare a Pesaro in compagnia del suo compagno di sala Riccardo Macchion.) davvero peccato per Anna Chiara Pontello che anche qu, come già successo a Padova nel primo Open regionale, per una manciata di punti non riesce ad entrare nella zona delle aventi diritto al pass per l’Open nazionale di marzo!

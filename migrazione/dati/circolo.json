@@ -1,0 +1,55 @@
+{
+  "nome": "Circolo Scherma Castelfranco Veneto A.S.D.",
+  "forma": "Associazione sportiva dilettantistica",
+  "fondazione": "2004-11-02",
+  "fondatori": [
+    "Giuseppe Tagliariol",
+    "Davide Cenedese"
+  ],
+  "codice_fiscale": null,
+  "contatti": {
+    "email": "socitag@gmail.com",
+    "email_dominio": "info@schermacastelfranco.it",
+    "pec": "schermacastelfranco@pec.netsons.org",
+    "telefono": "+39 335 534 0183",
+    "referente": "Giuseppe Tagliariol (Presidente e Maestro)"
+  },
+  "pagamenti": {
+    "iban": "IT76 E030 6961 5651 0000 0014 976",
+    "conto_corrente": "10001940"
+  },
+  "sede": {
+    "nome": "Nuova Sala Scherma del Circolo",
+    "indirizzo": "via Lovara (vicino alla Protezione Civile)",
+    "citta": "Castelfranco Veneto (TV)",
+    "nota": "La pagina Storia cita ancora via Verdi 40 e Borgo Treviso: confermare la sede attuale"
+  },
+  "orari": [
+    {
+      "giorno": "Lunedì",
+      "dalle": "17:00",
+      "alle": "21:30"
+    },
+    {
+      "giorno": "Martedì",
+      "dalle": "17:00",
+      "alle": "21:30"
+    },
+    {
+      "giorno": "Mercoledì",
+      "dalle": "17:00",
+      "alle": "21:30"
+    },
+    {
+      "giorno": "Giovedì",
+      "dalle": "17:00",
+      "alle": "21:30"
+    },
+    {
+      "giorno": "Venerdì",
+      "dalle": "17:00",
+      "alle": "21:30"
+    }
+  ],
+  "storia_testo_originale": "Il Circolo Scherma Castelfranco Veneto A.S.D. è un sodalizio schermistico fondato il 2 Novembre 2004 dall’attuale Presidente e Istruttore Nazionale signor Giuseppe Tagliariol col Maestro di Scherma signor Davide Cenedese.\n\nPer l’esercizio delle proprie attività, il circolo ha in uso dal Comune di Castelfranco Veneto una delle palestre dell’Istituto Tecnico Commerciale e per Geometri “A. Martini” in via Verdi 40 ed a breve riceverà dallo stesso Comune una sede definitiva, più ampia ed idonea (pedane regolamentari), nei locali dell’ex Istituto Agrario in Borgo Treviso.\n\nL’obiettivo principale dei due fondatori è la divulgazione nel territorio della castellana della disciplina sportiva della Scherma. Destinatari principali sono i bambini ed i ragazzi in età scolare, ma si tengono anche dei corsi serali per adulti. Chi si avvicina da adulto a questa disciplina, oltre ad apprezzarne il contenuto sportivo potrà percepire anche l’utilità che essa riserva ai giovani sotto il profilo formativo.\n\nAttualmente il Circolo Scherma Castelfranco A.S.D. ha quasi una cinquantina di iscritti in tutte le categorie agonistiche previste dalla Federazione Scherma Nazionale. La speranza e l’auspicio, considerato il trend positivo delle passate stagioni, è di vedere aumentare il numero degli iscritti.\n\nGli istruttori sono giornalmente impegnati dalle ore 17 alle ore 21.30 con tutti gli atleti per garantire loro un buon livello tecnico di preparazione per le gare che si svolgono in forma di Gran Prix regionali, interregionali e nazionali in diverse sedi italiane (per esempio Torino, Vicenza Lucca, Firenze, Caserta, Foggia, ecc.). gare a cui partecipano anche duecento atleti per categoria di gara giornaliera.\n\nIl Circolo Scherma Castelfranco Veneto A.S.D. ha già raggiunto risultati di rilievo nelle categorie giovanili, sia in campo regionale che nazionale, con vittorie e piazzamenti sul podio. Si tratta di risultati che trasmettono entusiasmo e che fanno ben sperare per il futuro.\n\nIl Circolo Scherma Castelfranco Veneto A.S.D. con il patrocinio del Comune di Castelfranco Veneto, ha dato vita nell’ottbre 2007 ad un evento di interesse interregionale: Il 1° Trofeo Città di Castelfranco Veneto. Un meeting sportivo che potrà diventare uno stabile appuntamento di inizio stagione per gli appassionati di questa disciplina.\n\nCon la disponibilità di questi spazi (la nuova sede e il sito internet) auspichiamo di poter dare ancora maggior visibilità al Circolo e conseguentemente trovare anche soggetti disposti a sostenere attraverso la sponsorizzazione l’attività del Circolo Scherma Castelfranco A.S.D., che attualmente riesce ad accompagnare i propri ragazzi a queste manifestazioni, contando in massima parte su quanto proviene dai tesseramenti e dall’autotassazione degli atleti stessi o dei loro famigliari."
+}

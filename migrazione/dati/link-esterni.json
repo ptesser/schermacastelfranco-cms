@@ -1,0 +1,27 @@
+[
+  {
+    "nome": "CONI",
+    "url": "https://www.coni.it/it/"
+  },
+  {
+    "nome": "FIE — Fédération Internationale d'Escrime",
+    "url": "https://fie.org"
+  },
+  {
+    "nome": "European Fencing Confederation",
+    "url": "https://www.eurofencing.info",
+    "nota": "sul sito vecchio etichettato 'FFE'"
+  },
+  {
+    "nome": "Federscherma",
+    "url": "https://www.federscherma.it"
+  },
+  {
+    "nome": "Scherma Veneto",
+    "url": "http://www.schermaveneto.it"
+  },
+  {
+    "nome": "Comune di Castelfranco Veneto",
+    "url": "https://www.comune.castelfrancoveneto.tv.it"
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "nome": "Giuseppe Tagliariol",
+    "ruolo": "Presidente e Maestro",
+    "qualifica": "Istruttore Nazionale",
+    "foto": "../media/struttura/presidente-tagliariol.jpg",
+    "alt": "Ritratto del Maestro Giuseppe Tagliariol",
+    "bio": null
+  },
+  {
+    "nome": "Davide Cenedese",
+    "ruolo": "Maestro (cofondatore)",
+    "qualifica": null,
+    "foto": null,
+    "alt": null,
+    "bio": "Ruolo attuale da confermare"
+  }
+]
