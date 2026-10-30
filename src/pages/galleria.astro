@@ -5,19 +5,28 @@ import PageHeader from '../components/ui/PageHeader.astro';
 import Section from '../components/ui/Section.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getAlbums } from '../lib/content';
+import placeholder from '../../migration/media/site/banner-schermitore.png';
 
 const albums = await getAlbums();
 ---
 
 <BaseLayout title="Galleria" description="Album fotografici delle gare e della vita del Circolo Scherma Castelfranco Veneto.">
-  <PageHeader title="Galleria">Le foto delle gare e della vita in sala, divise per album.</PageHeader>
+  <PageHeader title="Galleria">Le foto delle gare e della vita in sala. Gli album si aprono su Google Foto.</PageHeader>
 
   <Section label="Album">
     <ul class="grid">
       {
         albums.map((album) => (
           <li>
-            <ImageCard title={album.data.title} image={album.data.cover} imageAlt={album.data.coverAlt ?? ''} placeholder="Copertina album" imageHeight="12.5rem">
+            <ImageCard
+              title={album.data.title}
+              image={album.data.cover}
+              imageAlt={album.data.coverAlt ?? ''}
+              fallback={placeholder}
+              href={album.data.externalLink ?? undefined}
+              external
+              imageHeight="12.5rem"
+            >
               {album.data.date && (
                 <p class="muted">
                   <FormattedDate date={album.data.date} />

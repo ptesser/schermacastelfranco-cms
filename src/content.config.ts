@@ -85,7 +85,8 @@ const albums = defineCollection({
       date: z.coerce.date().nullable(),
       cover: image().nullable().optional(),
       coverAlt: z.string().optional(),
-      originalLink: nullableString,
+      /** Public album (e.g. Google Photos). Null when the old link is dead. */
+      externalLink: z.url().nullable(),
     }),
 });
 

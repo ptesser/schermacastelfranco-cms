@@ -42,8 +42,9 @@ export async function getLinks() {
   return getCollection('links');
 }
 
+/** Albums with a working public link, newest first. */
 export async function getAlbums() {
-  const albums = await getCollection('albums');
+  const albums = await getCollection('albums', (album) => Boolean(album.data.externalLink));
   return albums.sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0));
 }
 

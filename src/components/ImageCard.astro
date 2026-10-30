@@ -8,18 +8,39 @@ interface Props {
   image?: ImageMetadata | null;
   imageAlt?: string | null;
   placeholder?: string;
+  fallback?: ImageMetadata;
   /** Makes the title a link. */
   href?: string;
+  /** Link opens an external site: shows an icon and a screen reader hint. */
+  external?: boolean;
   imageHeight?: string;
 }
 
-const { title, image, imageAlt, placeholder, href, imageHeight = '14rem' } = Astro.props;
+const { title, image, imageAlt, placeholder, fallback, href, external = false, imageHeight = '14rem' } = Astro.props;
 ---
 
 <Card as="article" flush>
-  <MediaImage src={image} alt={imageAlt} placeholder={placeholder} height={imageHeight} class="image-card__media" />
+  <MediaImage src={image} alt={imageAlt} fallback={fallback} placeholder={placeholder} height={imageHeight} class="image-card__media" />
   <div class="image-card__body">
-    <h3 class="image-card__title">{href ? <a href={href}>{title}</a> : title}</h3>
+    <h3 class="image-card__title">
+      {
+        href ? (
+          <a href={href} rel={external ? 'noopener' : undefined}>
+            {title}
+            {external && (
+              <>
+                <svg aria-hidden="true" class="image-card__external" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17 17 7M8 7h9v9" />
+                </svg>
+                <span class="visually-hidden"> (sito esterno)</span>
+              </>
+            )}
+          </a>
+        ) : (
+          title
+        )
+      }
+    </h3>
     <slot />
   </div>
 </Card>
@@ -38,6 +59,23 @@ const { title, image, imageAlt, placeholder, href, imageHeight = '14rem' } = Ast
 
   .image-card__title a {
     text-decoration: none;
+  }
+
+  .image-card__title a:hover {
+    text-decoration: underline;
+  }
+
+  /* Whole card is clickable through the title link. */
+  .image-card__title a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  .image-card__external {
+    display: inline-block;
+    margin-inline-start: 0.25rem;
+    vertical-align: -0.1em;
   }
 
   :global(.image-card__media) {
