@@ -5,7 +5,9 @@ import { Image } from 'astro:assets';
 interface Props {
   src?: ImageMetadata | null;
   alt?: string | null;
-  /** Placeholder text shown when there is no image. */
+  /** Decorative image used when `src` is missing. */
+  fallback?: ImageMetadata;
+  /** Placeholder text shown when there is neither `src` nor `fallback`. */
   placeholder?: string;
   /** Rendered height; the image is cropped to fill it. */
   height?: string;
@@ -17,8 +19,9 @@ interface Props {
 }
 
 const {
-  src,
-  alt = '',
+  src: source,
+  alt: sourceAlt = '',
+  fallback,
   placeholder = 'Foto',
   height = '13rem',
   widths = [400, 800, 1200],
@@ -26,6 +29,9 @@ const {
   priority = false,
   class: className,
 } = Astro.props;
+
+const src = source ?? fallback;
+const alt = source ? sourceAlt : '';
 ---
 
 {
