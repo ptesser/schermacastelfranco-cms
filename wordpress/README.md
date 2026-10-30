@@ -25,7 +25,7 @@ mu-plugins/
 4. Add to `wp-config.php`, above `/* That's all, stop editing! */`:
 
    ```php
-   define('SCHERMA_PUBLIC_URL', 'https://www.schermacastelfranco.it');
+   define('SCHERMA_PUBLIC_URL', 'https://www.schermacastelfranco.it'); // at launch; defaults to the test site
    define('SCHERMA_DEPLOY_HOOK_URL', 'https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/…'); // once Pages exists
    ```
 
