@@ -5,6 +5,8 @@ import PageHeader from '../components/ui/PageHeader.astro';
 import Section from '../components/ui/Section.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { club, getStaff } from '../lib/content';
+import hallPlaceholder from '../assets/placeholder-hall.svg';
+import personPlaceholder from '../assets/placeholder-person.svg';
 
 const staff = await getStaff();
 
@@ -36,11 +38,18 @@ const timeline = [
   </Section>
 
   <Section title="Staff" id="staff" tone="surface">
-    <ul class="grid" style="--grid-min: 15rem">
+    <ul class="grid" style="--grid-min: 14rem; --grid-max: 18rem">
       {
         staff.map((person) => (
           <li>
-            <ImageCard title={person.data.name} image={person.data.photo} imageAlt={person.data.photoAlt} placeholder="Foto">
+            <ImageCard
+              title={person.data.name}
+              image={person.data.photo}
+              imageAlt={person.data.photoAlt}
+              fallback={personPlaceholder}
+              imageAspectRatio="4 / 5"
+              imagePosition="center top"
+            >
               <p class="role">{person.data.role}</p>
               {person.data.bio && <p class="muted">{person.data.bio}</p>}
             </ImageCard>
@@ -56,7 +65,7 @@ const timeline = [
         <p>{club.venue.name}, {club.venue.address}, {club.venue.city}. [Numero di pedane e servizi]</p>
         <p><a href="/contatti/">Come raggiungerci</a></p>
       </div>
-      <MediaImage placeholder="Foto della sala" height="clamp(14rem, 10rem + 10vw, 19rem)" />
+      <MediaImage fallback={hallPlaceholder} height="clamp(14rem, 10rem + 10vw, 19rem)" />
     </div>
   </Section>
 </BaseLayout>
