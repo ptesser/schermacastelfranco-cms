@@ -9,8 +9,12 @@ interface Props {
   fallback?: ImageMetadata;
   /** Placeholder text shown when there is neither `src` nor `fallback`. */
   placeholder?: string;
-  /** Rendered height; the image is cropped to fill it. */
+  /** Rendered height; the image is cropped to fill it. Ignored when `aspectRatio` is set. */
   height?: string;
+  /** Fixed proportions instead of a height, e.g. `4 / 5` for portraits. */
+  aspectRatio?: string;
+  /** Focal point when cropping, e.g. `center 20%`. */
+  position?: string;
   widths?: number[];
   sizes?: string;
   /** Set on the page's main (LCP) image only. */
@@ -24,6 +28,8 @@ const {
   fallback,
   placeholder = 'Foto',
   height = '13rem',
+  aspectRatio,
+  position = 'center',
   widths = [400, 800, 1200],
   sizes = '(min-width: 60rem) 33vw, 100vw',
   priority = false,
@@ -32,6 +38,9 @@ const {
 
 const src = source ?? fallback;
 const alt = source ? sourceAlt : '';
+const style = aspectRatio
+  ? `--media-aspect: ${aspectRatio}; --media-position: ${position}`
+  : `--media-height: ${height}; --media-position: ${position}`;
 ---
 
 {
@@ -44,10 +53,10 @@ const alt = source ? sourceAlt : '';
       loading={priority ? 'eager' : 'lazy'}
       fetchpriority={priority ? 'high' : undefined}
       class:list={['media-image', className]}
-      style={`--media-height: ${height}`}
+      style={style}
     />
   ) : (
-    <div class:list={['media-image', 'media-image--empty', className]} style={`--media-height: ${height}`} aria-hidden="true">
+    <div class:list={['media-image', 'media-image--empty', className]} style={style} aria-hidden="true">
       [{placeholder}]
     </div>
   )
@@ -56,8 +65,10 @@ const alt = source ? sourceAlt : '';
 <style>
   .media-image {
     inline-size: 100%;
-    block-size: var(--media-height);
+    block-size: var(--media-height, auto);
+    aspect-ratio: var(--media-aspect, auto);
     object-fit: cover;
+    object-position: var(--media-position, center);
   }
 
   .media-image--empty {
