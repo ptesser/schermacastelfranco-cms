@@ -1,0 +1,213 @@
+---
+import { contactNav, isCurrent, mainNav } from '../../config/navigation';
+
+const { pathname } = Astro.url;
+const items = [...mainNav, contactNav];
+---
+
+<header class="site-header">
+  <div class="container site-header__bar">
+    <a class="brand" href="/">
+      <span class="brand__mark" aria-hidden="true">[Logo]</span>
+      <span class="brand__name">Scherma<br />Castelfranco</span>
+      <span class="visually-hidden">Circolo Scherma Castelfranco Veneto, home</span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      data-menu-toggle
+      hidden
+    >
+      <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <path d="M4 7h16M4 12h16M4 17h16"></path>
+      </svg>
+      <span data-menu-label>Menu</span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Menu principale" data-menu>
+      <ul class="site-nav__list">
+        {
+          items.map((item) => {
+            const current = isCurrent(item.href, pathname);
+            const isCta = item === contactNav;
+            return (
+              <li>
+                <a
+                  href={item.href}
+                  class:list={['site-nav__link', { 'site-nav__link--cta': isCta }]}
+                  aria-current={current ? 'page' : undefined}
+                >
+                  {item.label}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // Disclosure menu for small screens. Without JavaScript the list stays visible.
+  const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const menu = document.querySelector<HTMLElement>('[data-menu]');
+  const label = toggle?.querySelector('[data-menu-label]');
+
+  if (toggle && menu && label) {
+    const setOpen = (open: boolean) => {
+      toggle.setAttribute('aria-expanded', String(open));
+      menu.dataset.open = String(open);
+      label.textContent = open ? 'Chiudi' : 'Menu';
+    };
+
+    toggle.hidden = false;
+    menu.dataset.enhanced = 'true';
+    setOpen(false);
+
+    toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+    menu.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menu.dataset.open === 'true') {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+  }
+</script>
+
+<style>
+  .site-header {
+    background: var(--color-bg);
+    border-block-end: var(--border);
+  }
+
+  .site-header__bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-s);
+    padding-block: 0.875rem;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+  }
+
+  .brand__mark {
+    display: grid;
+    place-items: center;
+    inline-size: 3rem;
+    block-size: 3rem;
+    border: var(--border);
+    border-radius: var(--radius-s);
+    background: var(--color-surface);
+    font-size: 0.625rem;
+    font-weight: 600;
+  }
+
+  .brand__name {
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.05;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    min-block-size: var(--target-min);
+    padding-inline: 1rem;
+    border: var(--border);
+    border-radius: var(--radius-pill);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .menu-toggle[hidden] {
+    display: none;
+  }
+
+  .site-nav {
+    flex-basis: 100%;
+  }
+
+  .site-nav[data-enhanced='true'][data-open='false'] {
+    display: none;
+  }
+
+  .site-nav__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 1.1875rem;
+    font-weight: 700;
+  }
+
+  .site-nav__link {
+    display: block;
+    padding-block: 0.875rem;
+    border-block-end: 1px solid var(--color-divider);
+    text-decoration: none;
+  }
+
+  .site-nav__link[aria-current='page'] {
+    color: var(--color-accent);
+  }
+
+  @media (min-width: 60rem) {
+    .menu-toggle {
+      display: none;
+    }
+
+    .site-nav,
+    .site-nav[data-enhanced='true'][data-open='false'] {
+      display: block;
+      flex-basis: auto;
+    }
+
+    .site-nav__list {
+      display: flex;
+      align-items: center;
+      gap: 1.625rem;
+      font-size: 1.0625rem;
+      font-weight: 600;
+    }
+
+    .site-nav__link {
+      padding-block: 0.625rem;
+      border-block-end: 3px solid transparent;
+    }
+
+    .site-nav__link[aria-current='page'] {
+      border-block-end-color: var(--color-accent);
+    }
+
+    .site-nav__link--cta {
+      display: inline-flex;
+      align-items: center;
+      min-block-size: var(--target-min);
+      padding-inline: 1.375rem;
+      border: var(--border);
+      border-radius: var(--radius-pill);
+      background: var(--color-accent);
+      color: #fff;
+    }
+
+    .site-nav__link--cta:hover,
+    .site-nav__link--cta[aria-current='page'] {
+      color: #fff;
+      border-color: var(--color-border);
+    }
+  }
+</style>

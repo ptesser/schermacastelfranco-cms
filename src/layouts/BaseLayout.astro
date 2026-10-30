@@ -1,0 +1,63 @@
+---
+import '../styles/global.css';
+import Footer from '../components/layout/Footer.astro';
+import Header from '../components/layout/Header.astro';
+
+interface Props {
+  /** Page title, without the site name. */
+  title?: string;
+  description?: string;
+}
+
+const siteName = 'Circolo Scherma Castelfranco Veneto';
+const {
+  title,
+  description = 'Scherma a Castelfranco Veneto dal 2004: corsi di fioretto e spada, notizie e risultati delle gare.',
+} = Astro.props;
+const fullTitle = title ? `${title} — ${siteName}` : siteName;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="it_IT" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Salta al contenuto</a>
+    <Header />
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .skip-link {
+    position: absolute;
+    inset-block-start: 0.5rem;
+    inset-inline-start: 0.5rem;
+    z-index: 10;
+    padding: 0.5rem 1rem;
+    background: var(--color-text);
+    color: #fff;
+    font-size: var(--text-sm);
+    transform: translateY(-200%);
+  }
+
+  .skip-link:focus {
+    transform: none;
+  }
+
+  main:focus {
+    outline: none;
+  }
+</style>
