@@ -147,7 +147,7 @@ a:hover {
 .grid {
   display: grid;
   gap: var(--grid-gap, var(--space-m));
-  grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min, 18rem), 100%), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min, 18rem), 100%), var(--grid-max, 1fr)));
   margin: 0;
   padding: 0;
   list-style: none;
