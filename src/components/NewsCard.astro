@@ -4,6 +4,7 @@ import Badge from './ui/Badge.astro';
 import Card from './ui/Card.astro';
 import FormattedDate from './ui/FormattedDate.astro';
 import MediaImage from './ui/MediaImage.astro';
+import placeholder from '../../migration/media/site/banner-schermitore.png';
 
 interface Props {
   entry: NewsEntry;
@@ -25,7 +26,7 @@ function toExcerpt(text: string, maxLength = 160) {
 ---
 
 <Card as="article" flush>
-  <MediaImage src={image} alt={imageAlt} />
+  <MediaImage src={image} alt={imageAlt} fallback={placeholder} />
   <div class="news-card__body">
     <p class="news-card__meta">
       <Badge>{newsCategoryLabels[category]}</Badge>
