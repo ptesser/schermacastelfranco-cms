@@ -4,7 +4,7 @@
 
 - **WordPress as the admin panel** on Netsons (PHP + MySQL are already included in the hosting plan). Chosen because volunteers already know it, it has unlimited users and roles, and it needs no paid licence.
 - **Astro** builds the public site by reading the WordPress REST API (`/wp-json/wp/v2/`). The HTML is hand-written, so accessibility does not depend on a theme.
-- **Cloudflare Pages** hosts the static site for free. WordPress calls a Pages *deploy hook* on every publish (WP Webhooks plugin).
+- **Cloudflare Pages** hosts the static site for free. WordPress calls a Pages *deploy hook* on every publish (`deploy-hook.php` in the mu-plugin, throttled to one call per minute).
 - **WordPress from day one**, not later: content lives in the database, and the club can enter it while the site is being built.
 
 ## Rule for the Astro code

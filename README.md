@@ -23,17 +23,19 @@ npm run check    # type and template checks
 npm run build    # static site in dist/
 ```
 
-## Deploy (Cloudflare Workers static assets)
+## Deploy (Cloudflare Pages)
 
-The site is served as static assets by a Cloudflare Worker connected to this repository (`wrangler.jsonc`, no Worker code).
+The site is a Cloudflare Pages project connected to this repository (`wrangler.jsonc`). Every push to `main` deploys production.
 
 | Setting | Value |
 | --- | --- |
+| Framework preset | Astro |
 | Build command | `npm run build` |
-| Deploy command | `npx wrangler deploy` |
+| Build output directory | `dist` |
+| Production branch | `main` |
 | Node version | from `.nvmrc` (22) |
 
-Test site: `test.schermacastelfranco.it`. WordPress triggers a rebuild on publish through `SCHERMA_DEPLOY_HOOK_URL` (see `wordpress/README.md`).
+Test site: `test.schermacastelfranco.it`, a CNAME at Netsons pointing to `schermacastelfranco-cms.pages.dev`. WordPress triggers a rebuild on publish through a Pages deploy hook stored in `SCHERMA_DEPLOY_HOOK_URL` (see `wordpress/README.md`).
 
 ## Code structure
 
