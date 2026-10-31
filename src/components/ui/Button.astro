@@ -17,11 +17,13 @@ const { href, variant = 'primary', class: className, ...rest } = Astro.props;
     align-items: center;
     justify-content: center;
     min-block-size: 3.375rem;
-    padding-inline: 1.75rem;
+    padding: 0.625rem 1.75rem;
     border: var(--border);
     border-radius: var(--radius-pill);
     font-weight: 700;
+    line-height: 1.2;
     text-align: center;
+    text-wrap: balance;
     text-decoration: none;
   }
 
