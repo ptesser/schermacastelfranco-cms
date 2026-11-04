@@ -5,7 +5,8 @@ date: "2014-11-13"
 location: "Castelfranco Veneto"
 category: "event"
 image: "../media/races/dieci-anni.jpg"
-imageAlt: "Festa per i dieci anni del circolo"
+imageAlt: "Foto di gruppo di atleti e maestri per i dieci anni del circolo, stagione 2013-2014"
+imageFocus: "center"
 source: "https://schermacastelfranco.it/controller/articlesPageCtrl.php?from=articles&id=25"
 ---
 

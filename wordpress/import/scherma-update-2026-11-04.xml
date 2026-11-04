@@ -217,7 +217,7 @@
 		<wp:post_mime_type>image/jpeg</wp:post_mime_type>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_wp_attachment_image_alt]]></wp:meta_key>
-			<wp:meta_value><![CDATA[Festa per i dieci anni del circolo]]></wp:meta_value>
+			<wp:meta_value><![CDATA[Foto di gruppo di atleti e maestri per i dieci anni del circolo, stagione 2013-2014]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:attachment_url><![CDATA[https://raw.githubusercontent.com/ptesser/schermacastelfranco-cms/main/migration/media/races/dieci-anni.jpg]]></wp:attachment_url>
 	</item>
@@ -812,6 +812,14 @@
 			<wp:meta_key><![CDATA[_location]]></wp:meta_key>
 			<wp:meta_value><![CDATA[field_scherma_news_location]]></wp:meta_value>
 		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[top]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_scherma_news_image_focus]]></wp:meta_value>
+		</wp:postmeta>
 	</item>
 	<item>
 		<title><![CDATA[Finali regionali U-14 2013/2014: ottima chiusura di stagione a Vicenza]]></title>
@@ -847,6 +855,14 @@
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_location]]></wp:meta_key>
 			<wp:meta_value><![CDATA[field_scherma_news_location]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[top]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_scherma_news_image_focus]]></wp:meta_value>
 		</wp:postmeta>
 	</item>
 	<item>
@@ -885,6 +901,14 @@ Il sabato, ad apertura di questa entusiasmante due giorni di Scherma c’è stat
 			<wp:meta_key><![CDATA[_location]]></wp:meta_key>
 			<wp:meta_value><![CDATA[field_scherma_news_location]]></wp:meta_value>
 		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[top]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_scherma_news_image_focus]]></wp:meta_value>
+		</wp:postmeta>
 	</item>
 	<item>
 		<title><![CDATA[Qualificazione per l'Open di spada: passano Andrea Cenedese e Luca Campalani]]></title>
@@ -922,6 +946,14 @@ La domenica mattina sono saliti in pedana per rappresentare il Circolo Scherma C
 			<wp:meta_key><![CDATA[_location]]></wp:meta_key>
 			<wp:meta_value><![CDATA[field_scherma_news_location]]></wp:meta_value>
 		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[top]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_scherma_news_image_focus]]></wp:meta_value>
+		</wp:postmeta>
 	</item>
 	<item>
 		<title><![CDATA[Giochi giovanili CONI: vittoria di Francesco Zanchin, ottima prova di Eleonora Santi]]></title>
@@ -957,6 +989,14 @@ La domenica mattina sono saliti in pedana per rappresentare il Circolo Scherma C
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_location]]></wp:meta_key>
 			<wp:meta_value><![CDATA[field_scherma_news_location]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[top]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_scherma_news_image_focus]]></wp:meta_value>
 		</wp:postmeta>
 	</item>
 	<item>
@@ -995,6 +1035,14 @@ La domenica mattina nella parte di Torneo dedicata alle donne, la compagine cast
 			<wp:meta_key><![CDATA[_location]]></wp:meta_key>
 			<wp:meta_value><![CDATA[field_scherma_news_location]]></wp:meta_value>
 		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[top]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_scherma_news_image_focus]]></wp:meta_value>
+		</wp:postmeta>
 	</item>
 	<item>
 		<title><![CDATA[Prima prova del Campionato italiano cadetti U-17 di spada]]></title>
@@ -1031,6 +1079,14 @@ La domenica mattina nella parte di Torneo dedicata alle donne, la compagine cast
 			<wp:meta_key><![CDATA[_location]]></wp:meta_key>
 			<wp:meta_value><![CDATA[field_scherma_news_location]]></wp:meta_value>
 		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[top]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_scherma_news_image_focus]]></wp:meta_value>
+		</wp:postmeta>
 	</item>
 	<item>
 		<title><![CDATA[Invito alla festa per i dieci anni del circolo]]></title>
@@ -1062,6 +1118,14 @@ La domenica mattina nella parte di Torneo dedicata alle donne, la compagine cast
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_location]]></wp:meta_key>
 			<wp:meta_value><![CDATA[field_scherma_news_location]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[top]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_scherma_news_image_focus]]></wp:meta_value>
 		</wp:postmeta>
 	</item>
 	<item>
@@ -1107,6 +1171,14 @@ Al termine dell’incontro il Circolo Scherma Castelfranco Veneto offrirà ai pr
 			<wp:meta_key><![CDATA[_location]]></wp:meta_key>
 			<wp:meta_value><![CDATA[field_scherma_news_location]]></wp:meta_value>
 		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[center]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_scherma_news_image_focus]]></wp:meta_value>
+		</wp:postmeta>
 	</item>
 	<item>
 		<title><![CDATA[Circuito europeo cadetti: Beatrice Cagnin vince a Heidenheim]]></title>
@@ -1143,6 +1215,14 @@ Al termine dell’incontro il Circolo Scherma Castelfranco Veneto offrirà ai pr
 			<wp:meta_key><![CDATA[_location]]></wp:meta_key>
 			<wp:meta_value><![CDATA[field_scherma_news_location]]></wp:meta_value>
 		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[top]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_scherma_news_image_focus]]></wp:meta_value>
+		</wp:postmeta>
 	</item>
 	<item>
 		<title><![CDATA[Prima prova del Campionato interregionale U-14 di spada]]></title>
@@ -1174,6 +1254,14 @@ Al termine dell’incontro il Circolo Scherma Castelfranco Veneto offrirà ai pr
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_location]]></wp:meta_key>
 			<wp:meta_value><![CDATA[field_scherma_news_location]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[top]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_scherma_news_image_focus]]></wp:meta_value>
 		</wp:postmeta>
 	</item>
 	<item>
@@ -1213,6 +1301,14 @@ La domenica mattina sono partite assieme le due gare delle Giovanissime (anche q
 			<wp:meta_key><![CDATA[_location]]></wp:meta_key>
 			<wp:meta_value><![CDATA[field_scherma_news_location]]></wp:meta_value>
 		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[top]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_scherma_news_image_focus]]></wp:meta_value>
+		</wp:postmeta>
 	</item>
 	<item>
 		<title><![CDATA[Beatrice Cagnin terza a Copenaghen]]></title>
@@ -1251,6 +1347,14 @@ Ora ci sarà la tanto attesa pausa natalizia per ricaricare un po’ le batterie
 			<wp:meta_key><![CDATA[_location]]></wp:meta_key>
 			<wp:meta_value><![CDATA[field_scherma_news_location]]></wp:meta_value>
 		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[top]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_scherma_news_image_focus]]></wp:meta_value>
+		</wp:postmeta>
 	</item>
 	<item>
 		<title><![CDATA[Secondo interregionale U-14 di spada: la Scherma Castelfranco si mette in luce]]></title>
@@ -1286,6 +1390,14 @@ Ora ci sarà la tanto attesa pausa natalizia per ricaricare un po’ le batterie
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_location]]></wp:meta_key>
 			<wp:meta_value><![CDATA[field_scherma_news_location]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[top]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_scherma_news_image_focus]]></wp:meta_value>
 		</wp:postmeta>
 	</item>
 	<item>
@@ -1323,6 +1435,14 @@ Ora ci sarà la tanto attesa pausa natalizia per ricaricare un po’ le batterie
 			<wp:meta_key><![CDATA[_location]]></wp:meta_key>
 			<wp:meta_value><![CDATA[field_scherma_news_location]]></wp:meta_value>
 		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[top]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_scherma_news_image_focus]]></wp:meta_value>
+		</wp:postmeta>
 	</item>
 	<item>
 		<title><![CDATA[Un gesto di umanità]]></title>
@@ -1356,6 +1476,14 @@ Grazie per la vostra generosità.</p>]]></content:encoded>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_location]]></wp:meta_key>
 			<wp:meta_value><![CDATA[field_scherma_news_location]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[top]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_scherma_news_image_focus]]></wp:meta_value>
 		</wp:postmeta>
 	</item>
 	<item>
@@ -1393,6 +1521,14 @@ Grazie per la vostra generosità.</p>]]></content:encoded>
 			<wp:meta_key><![CDATA[_location]]></wp:meta_key>
 			<wp:meta_value><![CDATA[field_scherma_news_location]]></wp:meta_value>
 		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[top]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_scherma_news_image_focus]]></wp:meta_value>
+		</wp:postmeta>
 	</item>
 	<item>
 		<title><![CDATA[Secondo interregionale U-14 di fioretto: Francesco Zanchin terzo]]></title>
@@ -1428,6 +1564,14 @@ Grazie per la vostra generosità.</p>]]></content:encoded>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_location]]></wp:meta_key>
 			<wp:meta_value><![CDATA[field_scherma_news_location]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[top]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_scherma_news_image_focus]]></wp:meta_value>
 		</wp:postmeta>
 	</item>
 	<item>
@@ -1465,6 +1609,14 @@ Grazie per la vostra generosità.</p>]]></content:encoded>
 			<wp:meta_key><![CDATA[_location]]></wp:meta_key>
 			<wp:meta_value><![CDATA[field_scherma_news_location]]></wp:meta_value>
 		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[top]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_scherma_news_image_focus]]></wp:meta_value>
+		</wp:postmeta>
 	</item>
 	<item>
 		<title><![CDATA[Coppa del Mondo Under-20 di spada femminile: ottima prova di Beatrice Cagnin]]></title>
@@ -1496,6 +1648,14 @@ Grazie per la vostra generosità.</p>]]></content:encoded>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_location]]></wp:meta_key>
 			<wp:meta_value><![CDATA[field_scherma_news_location]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[top]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_scherma_news_image_focus]]></wp:meta_value>
 		</wp:postmeta>
 	</item>
 	<item>
@@ -1533,6 +1693,14 @@ Grazie per la vostra generosità.</p>]]></content:encoded>
 			<wp:meta_key><![CDATA[_location]]></wp:meta_key>
 			<wp:meta_value><![CDATA[field_scherma_news_location]]></wp:meta_value>
 		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[top]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_scherma_news_image_focus]]></wp:meta_value>
+		</wp:postmeta>
 	</item>
 	<item>
 		<title><![CDATA[Terza prova interregionale U-14: Chiara Bonin protagonista a Zevio]]></title>
@@ -1568,6 +1736,14 @@ Grazie per la vostra generosità.</p>]]></content:encoded>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_location]]></wp:meta_key>
 			<wp:meta_value><![CDATA[field_scherma_news_location]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[top]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_scherma_news_image_focus]]></wp:meta_value>
 		</wp:postmeta>
 	</item>
 	<item>
@@ -1605,6 +1781,14 @@ Grazie per la vostra generosità.</p>]]></content:encoded>
 			<wp:meta_key><![CDATA[_location]]></wp:meta_key>
 			<wp:meta_value><![CDATA[field_scherma_news_location]]></wp:meta_value>
 		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[top]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_scherma_news_image_focus]]></wp:meta_value>
+		</wp:postmeta>
 	</item>
 	<item>
 		<title><![CDATA[La squadra di spada femminile conquista la A2 ai Campionati italiani assoluti]]></title>
@@ -1640,6 +1824,14 @@ Grazie per la vostra generosità.</p>]]></content:encoded>
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_location]]></wp:meta_key>
 			<wp:meta_value><![CDATA[field_scherma_news_location]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[top]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_scherma_news_image_focus]]></wp:meta_value>
 		</wp:postmeta>
 	</item>
 	<item>
@@ -1680,6 +1872,14 @@ Negli Allievi (ultima categoria dell’Under-14 prima di passare nell’Under-20
 			<wp:meta_key><![CDATA[_location]]></wp:meta_key>
 			<wp:meta_value><![CDATA[field_scherma_news_location]]></wp:meta_value>
 		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[top]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_scherma_news_image_focus]]></wp:meta_value>
+		</wp:postmeta>
 	</item>
 	<item>
 		<title><![CDATA[Campionato regionale U-14: ottima chiusura di stagione a Vicenza]]></title>
@@ -1717,6 +1917,14 @@ Come in ogni edizione le “nuove leve” della Scherma Castelfranco non si smen
 			<wp:meta_key><![CDATA[_location]]></wp:meta_key>
 			<wp:meta_value><![CDATA[field_scherma_news_location]]></wp:meta_value>
 		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[top]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_scherma_news_image_focus]]></wp:meta_value>
+		</wp:postmeta>
 	</item>
 	<item>
 		<title><![CDATA[Riccardo Macchion vince la gara Under-23 a Schio]]></title>
@@ -1753,6 +1961,14 @@ Nelle donne le nostre tre spadiste sono partite bene davvero, con l’impennata 
 		<wp:postmeta>
 			<wp:meta_key><![CDATA[_location]]></wp:meta_key>
 			<wp:meta_value><![CDATA[field_scherma_news_location]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[top]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_image_focus]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_scherma_news_image_focus]]></wp:meta_value>
 		</wp:postmeta>
 	</item>
 	<item>

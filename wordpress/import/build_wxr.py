@@ -41,7 +41,11 @@ NEWS_CATEGORIES = {'race': 'Gara', 'event': 'Evento', 'notice': 'Comunicazione'}
 
 # ACF field keys, from wordpress/mu-plugins/scherma/acf-json/.
 ACF_KEYS = {
-    'post': {'location': 'field_scherma_news_location', 'results': 'field_scherma_news_results'},
+    'post': {
+        'location': 'field_scherma_news_location',
+        'results': 'field_scherma_news_results',
+        'image_focus': 'field_scherma_news_image_focus',
+    },
     'course': {
         'weapon': 'field_scherma_course_weapon',
         'age_range': 'field_scherma_course_age',
@@ -186,7 +190,7 @@ def build(only: set[str] | None = None, news_before: str | None = None,
                 data['image'], data['title'], data['imageAlt'], post_id, data['date']))
         b.post('post', data['title'], path.stem, data['date'], post_id=post_id,
                content=markdown.markdown(body.strip()), meta=meta,
-               acf={'location': data.get('location')},
+               acf={'location': data.get('location'), 'image_focus': data.get('imageFocus', 'top')},
                categories=[(data['category'], NEWS_CATEGORIES[data['category']])])
 
     # Courses
