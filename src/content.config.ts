@@ -2,18 +2,28 @@
  * Content collections.
  *
  * Schemas mirror the WordPress content types (docs/content-types.md).
- * Until WordPress is live, entries are loaded from `migration/`.
- * To switch source, replace the loaders only: pages read data through
- * `src/lib/content.ts` and never depend on where it comes from.
+ * With WP_URL set (e.g. https://cms.schermacastelfranco.it), entries come from
+ * the WordPress REST API; without it, from `migration/` (offline development).
+ * Pages read data through `src/lib/content.ts` and never depend on the source.
  */
 import { defineCollection } from 'astro:content';
 import { file, glob } from 'astro/loaders';
 import { z } from 'astro/zod';
+import {
+  wordpressAlbums,
+  wordpressCourses,
+  wordpressDocuments,
+  wordpressNews,
+  wordpressSponsors,
+  wordpressStaff,
+} from './lib/wordpress-loader';
+
+const fromWordPress = Boolean(process.env.WP_URL);
 
 const nullableString = z.string().nullable().optional();
 
 const news = defineCollection({
-  loader: glob({ pattern: '*.md', base: './migration/news' }),
+  loader: fromWordPress ? wordpressNews() : glob({ pattern: '*.md', base: './migration/news' }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -39,7 +49,7 @@ const news = defineCollection({
 });
 
 const courses = defineCollection({
-  loader: file('./migration/data/courses.json'),
+  loader: fromWordPress ? wordpressCourses() : file('./migration/data/courses.json'),
   schema: z.object({
     title: z.string(),
     weapon: nullableString,
@@ -53,7 +63,7 @@ const courses = defineCollection({
 });
 
 const staff = defineCollection({
-  loader: file('./migration/data/staff.json'),
+  loader: fromWordPress ? wordpressStaff() : file('./migration/data/staff.json'),
   schema: ({ image }) =>
     z.object({
       name: z.string(),
@@ -67,11 +77,12 @@ const staff = defineCollection({
 });
 
 const documents = defineCollection({
-  loader: file('./migration/data/documents.json'),
+  loader: fromWordPress ? wordpressDocuments() : file('./migration/data/documents.json'),
   schema: z.object({
     title: z.string(),
     year: z.number().nullable(),
     description: nullableString,
+    /** Path under migration/media/documents, or an absolute URL (WordPress media). */
     file: z.string(),
     format: z.string(),
     sizeKb: z.number(),
@@ -80,7 +91,7 @@ const documents = defineCollection({
 });
 
 const albums = defineCollection({
-  loader: file('./migration/data/albums.json'),
+  loader: fromWordPress ? wordpressAlbums() : file('./migration/data/albums.json'),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -93,7 +104,7 @@ const albums = defineCollection({
 });
 
 const sponsors = defineCollection({
-  loader: file('./migration/data/sponsors.json'),
+  loader: fromWordPress ? wordpressSponsors() : file('./migration/data/sponsors.json'),
   schema: ({ image }) =>
     z.object({
       name: z.string(),

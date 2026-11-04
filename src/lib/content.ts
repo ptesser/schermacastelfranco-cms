@@ -66,6 +66,7 @@ export async function getDocuments() {
   const documents = await getCollection('documents');
   return documents
     .map((entry) => {
+      if (/^https?:\/\//.test(entry.data.file)) return { ...entry, url: entry.data.file };
       const fileName = entry.data.file.split('/').pop() ?? '';
       const url = documentFiles[`../../migration/media/documents/${fileName}`];
       if (!url) throw new Error(`Missing document file: ${entry.data.file}`);
