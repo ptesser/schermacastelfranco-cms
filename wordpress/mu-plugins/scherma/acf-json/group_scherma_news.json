@@ -30,10 +30,11 @@
       }
     ]
   ],
-  "position": "acf_after_title",
+  "position": "side",
   "style": "default",
   "label_placement": "top",
   "active": true,
   "show_in_rest": 1,
-  "modified": 1793392539
+  "modified": 1793831000,
+  "menu_order": 0
 }
