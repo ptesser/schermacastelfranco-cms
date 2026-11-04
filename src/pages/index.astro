@@ -9,7 +9,7 @@ import Section from '../components/ui/Section.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { club, getLatestNews, getSponsors, telHref } from '../lib/content';
 import fencerBanner from '../../migration/media/site/banner-schermitore.png';
-import boutPhoto from '../../migration/media/site/storia2.jpg';
+import fencerPhoto from '../../migration/media/site/storia2.jpg';
 
 const [news, sponsors] = await Promise.all([getLatestNews(3), getSponsors()]);
 const { venue, contacts, openingHours } = club;
@@ -89,9 +89,10 @@ const firstSlot = openingHours[0];
         </p>
       </div>
       <MediaImage
-        src={boutPhoto}
-        alt="Due schermitori durante un assalto in pedana"
+        src={fencerPhoto}
+        alt="Giovane schermidore che si sistema la maschera prima di salire in pedana"
         height="clamp(15rem, 10rem + 15vw, 24rem)"
+        position="center 20%"
         sizes="(min-width: 60rem) 45vw, 100vw"
         class="rounded"
       />
