@@ -14,7 +14,7 @@ mu-plugins/
     club-settings.php         "Dati del circolo" page + GET /wp-json/scherma/v1/club
     editorial.php             alt text required on featured images, comments off
     headless.php              redirects public visits to the Astro site, noindex
-    deploy-hook.php           calls the Cloudflare Pages deploy hook on publish (throttled)
+    deploy-hook.php           calls the Cloudflare Pages deploy hook on publish (throttled) + Settings › Pubblicazione sito
 ```
 
 ## Install
@@ -26,8 +26,9 @@ mu-plugins/
 
    ```php
    define('SCHERMA_PUBLIC_URL', 'https://www.schermacastelfranco.it'); // at launch; defaults to the test site
-   define('SCHERMA_DEPLOY_HOOK_URL', 'https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/…'); // once Pages exists
    ```
+
+5. WordPress › Settings › **Pubblicazione sito** (admins only): paste the Cloudflare Pages deploy hook URL. It is stored in the database, never in git and never exposed through the REST API. Defining `SCHERMA_DEPLOY_HOOK_URL` in `wp-config.php` instead also works and takes precedence.
 
 Must-use plugins load automatically and cannot be deactivated from the admin.
 
