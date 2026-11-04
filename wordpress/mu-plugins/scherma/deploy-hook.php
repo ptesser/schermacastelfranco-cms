@@ -69,15 +69,17 @@ function scherma_sanitize_deploy_hook(mixed $input): string
         return '';
     }
 
-    $url = trim((string) $input);
-    if ($url === '') {
+    $text = trim((string) $input);
+    if ($text === '') {
         return $current;
     }
-    if (!str_starts_with($url, SCHERMA_DEPLOY_PREFIX)) {
+    // Accept the bare URL or text that contains it, such as the "curl -d ..." test command.
+    $pattern = '#' . preg_quote(SCHERMA_DEPLOY_PREFIX, '#') . '[A-Za-z0-9-]+#';
+    if (!preg_match($pattern, $text, $match)) {
         add_settings_error(SCHERMA_DEPLOY_OPTION, 'invalid', 'L’URL deve essere un deploy hook di Cloudflare Pages (inizia con ' . SCHERMA_DEPLOY_PREFIX . ').');
         return $current;
     }
-    return esc_url_raw($url);
+    return esc_url_raw($match[0]);
 }
 
 add_action('admin_menu', static function (): void {
