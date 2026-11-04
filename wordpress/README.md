@@ -32,6 +32,17 @@ mu-plugins/
 
 Must-use plugins load automatically and cannot be deactivated from the admin.
 
+## Importing the migrated content
+
+`import/scherma-content.xml` holds the content of the old site: 7 news, 3 courses, 2 staff, 9 documents, 19 albums and 4 sponsors, with 20 media files. Regenerate it with `python3 wordpress/import/build_wxr.py` after changing `migration/` (needs `markdown` and `pyyaml`).
+
+1. WordPress › Tools › Import › **WordPress**: install the importer if asked, then run it.
+2. Upload `scherma-content.xml`.
+3. Assign the author `redazione` to an existing user and check **Download and import file attachments**. Media files are downloaded from this repository on GitHub.
+4. Run it once only: a second run skips existing items but may duplicate media.
+
+Post IDs start at 5001 so the importer keeps them, which keeps the document file fields linked to their attachments. The club settings (Dati del circolo) are not part of the file: fill them in from `migration/data/club.json`.
+
 ## Editing field groups
 
 Change fields in the admin (ACF › Field Groups): ACF writes the updated JSON into `acf-json/` on the server. Download it and commit it here, or edit the JSON in the repository and upload it.
