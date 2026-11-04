@@ -5,7 +5,7 @@ date: "2015-09-25"
 location: "Lignano Sabbiadoro"
 category: "race"
 image: "../media/races/coni_lignano_1.jpg"
-imageAlt: "[Describe the photo]"
+imageAlt: "Podio del Trofeo CONI 2015 di spada a squadre a Lignano Sabbiadoro"
 source: "https://schermacastelfranco.it/controller/articlesPageCtrl.php?from=articles&id=5"
 ---
 
