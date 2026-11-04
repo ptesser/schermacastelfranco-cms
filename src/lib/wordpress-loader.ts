@@ -92,6 +92,13 @@ export function stripHtml(html: string): string {
   return decodeEntities(html.replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
 }
 
+/** ACF date pickers store `Ymd` (e.g. 20170609); the REST API returns it as is. */
+export function acfDate(value: unknown): string | null {
+  const raw = text(value);
+  const match = raw?.match(/^(\d{4})-?(\d{2})-?(\d{2})$/);
+  return match ? `${match[1]}-${match[2]}-${match[3]}` : null;
+}
+
 const text = (value: unknown): string | null => (typeof value === 'string' && value.trim() !== '' ? value.trim() : null);
 
 async function featuredImage(item: WpItem): Promise<{ src: string; alt: string } | null> {
@@ -220,7 +227,7 @@ export const wordpressAlbums = () =>
       const image = await featuredImage(item);
       return {
         title: decodeEntities(item.title.rendered),
-        date: text(item.acf?.date),
+        date: acfDate(item.acf?.date),
         cover: image?.src ?? null,
         coverAlt: image?.alt ?? '',
         externalLink: text(item.acf?.external_link),
