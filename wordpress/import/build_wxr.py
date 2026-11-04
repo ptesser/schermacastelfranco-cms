@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 """Build a WordPress import file (WXR 1.2) from migration/.
 
-Usage: python3 wordpress/import/build_wxr.py
-Output: wordpress/import/scherma-content.xml
+Usage:
+  python3 wordpress/import/build_wxr.py
+      everything, for a fresh WordPress -> wordpress/import/scherma-content.xml
+  python3 wordpress/import/build_wxr.py --only news,document --news-before 2015-06-05 \
+      --documents dichiarazione-di-spese-nuova,modello-t1,modello-generale-divise,statuto-federale,regolamento-interno \
+      --id-base 6000 --output wordpress/import/scherma-update-2026-11-04.xml
+      a subset, to add content to an existing site
 
 Import it in WordPress › Tools › Import › WordPress, with
 "Download and import file attachments" checked. Media files are
@@ -14,6 +19,7 @@ reference attachment IDs, which the importer does not remap.
 
 from __future__ import annotations
 
+import argparse
 import json
 from datetime import datetime
 from pathlib import Path
@@ -68,8 +74,8 @@ def load_json(name: str) -> list | dict:
 
 
 class Builder:
-    def __init__(self) -> None:
-        self.next_id = ID_BASE
+    def __init__(self, id_base: int = ID_BASE) -> None:
+        self.next_id = id_base
         self.attachments: list[str] = []
         self.by_path: dict[str, int] = {}
         self.items: list[str] = []
@@ -159,14 +165,20 @@ class Builder:
         return '\n'.join(lines) + '\n' + extra + '\t</item>'
 
 
-def build() -> str:
-    b = Builder()
+def build(only: set[str] | None = None, news_before: str | None = None,
+          documents: set[str] | None = None, id_base: int = ID_BASE) -> str:
+    def wanted(post_type: str) -> bool:
+        return only is None or post_type in only
+
+    b = Builder(id_base)
     today = datetime.now().strftime('%Y-%m-%d')
 
     # News
-    for path in sorted((MIGRATION / 'news').glob('*.md')):
+    for path in [] if not wanted('post') else sorted((MIGRATION / 'news').glob('*.md')):
         _, front, body = path.read_text(encoding='utf-8').split('---', 2)
         data = yaml.safe_load(front)
+        if news_before and data['date'] >= news_before:
+            continue
         post_id = b.new_id()
         meta = {}
         if data.get('image'):
@@ -178,14 +190,14 @@ def build() -> str:
                categories=[(data['category'], NEWS_CATEGORIES[data['category']])])
 
     # Courses
-    for course in load_json('courses'):
+    for course in load_json('courses') if wanted('course') else []:
         b.post('course', course['title'], course['id'], today, order=course['order'],
                acf={'weapon': course['weapon'], 'age_range': course['ageRange'],
                     'schedule': course['schedule'], 'price': course['price'],
                     'instructor': course['instructor']})
 
     # Staff
-    for person in load_json('staff'):
+    for person in load_json('staff') if wanted('staff') else []:
         post_id = b.new_id()
         meta = {}
         if person['photo']:
@@ -197,14 +209,17 @@ def build() -> str:
                acf={'role': person['role'], 'qualification': person['qualification']})
 
     # Documents
-    for doc in load_json('documents'):
+    for doc in load_json('documents') if wanted('document') else []:
+        if documents and doc['id'] not in documents:
+            continue
         post_id = b.new_id()
-        file_id = b.attachment(doc['file'], doc['title'], '', post_id, f"{doc['year']}-01-01")
-        b.post('document', doc['title'], doc['id'], f"{doc['year']}-01-01", post_id=post_id,
+        date = f"{doc['year']}-01-01" if doc['year'] else today  # year unknown for some documents
+        file_id = b.attachment(doc['file'], doc['title'], '', post_id, date)
+        b.post('document', doc['title'], doc['id'], date, post_id=post_id,
                acf={'file': file_id, 'year': doc['year'], 'archived': int(doc['archived'])})
 
     # Albums (dead links are imported without a link, as on the site)
-    for album in load_json('albums'):
+    for album in load_json('albums') if wanted('album') else []:
         post_id = b.new_id()
         meta = {}
         if album.get('cover'):
@@ -216,7 +231,7 @@ def build() -> str:
                     'external_link': album['externalLink']})
 
     # Sponsors
-    for sponsor in load_json('sponsors'):
+    for sponsor in load_json('sponsors') if wanted('sponsor') else []:
         post_id = b.new_id()
         meta = {}
         if sponsor.get('logo'):
@@ -225,6 +240,10 @@ def build() -> str:
         b.post('sponsor', sponsor['name'], sponsor['id'], today, post_id=post_id,
                order=sponsor['order'], meta=meta, acf={'url': sponsor['url']})
 
+    return wrap(b)
+
+
+def wrap(b: Builder) -> str:
     categories = '\n'.join(
         f'\t<wp:category><wp:category_nicename>{slug}</wp:category_nicename>'
         f'<wp:category_parent></wp:category_parent><wp:cat_name>{cdata(name)}</wp:cat_name></wp:category>'
@@ -258,5 +277,14 @@ def build() -> str:
 
 
 if __name__ == '__main__':
-    OUTPUT.write_text(build(), encoding='utf-8')
-    print(f'Wrote {OUTPUT.relative_to(ROOT)}')
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument('--only', help='comma-separated post types: post,course,staff,document,album,sponsor')
+    parser.add_argument('--news-before', help='only news dated before YYYY-MM-DD')
+    parser.add_argument('--documents', help='comma-separated document ids from migration/data/documents.json')
+    parser.add_argument('--id-base', type=int, default=ID_BASE, help='first post ID minus one')
+    parser.add_argument('--output', type=Path, default=OUTPUT)
+    args = parser.parse_args()
+    output = args.output.resolve()
+    split = lambda value: set(value.split(',')) if value else None
+    output.write_text(build(split(args.only), args.news_before, split(args.documents), args.id_base), encoding='utf-8')
+    print(f'Wrote {output.relative_to(ROOT)}')
