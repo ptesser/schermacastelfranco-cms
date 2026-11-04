@@ -5,7 +5,7 @@ import Breadcrumb from '../../components/ui/Breadcrumb.astro';
 import FormattedDate from '../../components/ui/FormattedDate.astro';
 import MediaImage from '../../components/ui/MediaImage.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getNews, newsCategoryLabels, type NewsEntry } from '../../lib/content';
+import { getNews, imageFocusPosition, newsCategoryLabels, type NewsEntry } from '../../lib/content';
 
 export async function getStaticPaths() {
   const news = await getNews();
@@ -22,7 +22,7 @@ interface Props {
 }
 
 const { entry, newer, older } = Astro.props;
-const { title, date, location, category, image, imageAlt, results } = entry.data;
+const { title, date, location, category, image, imageAlt, imageFocus, results } = entry.data;
 const { Content } = await render(entry);
 ---
 
@@ -42,7 +42,7 @@ const { Content } = await render(entry);
     {
       image && (
         <div class="article__figure">
-          <MediaImage src={image} alt={imageAlt} height="clamp(14rem, 8rem + 25vw, 29rem)" sizes="(min-width: 52rem) 50rem, 100vw" priority />
+          <MediaImage src={image} alt={imageAlt} position={imageFocusPosition[imageFocus]} height="clamp(14rem, 8rem + 25vw, 29rem)" sizes="(min-width: 52rem) 50rem, 100vw" priority />
         </div>
       )
     }

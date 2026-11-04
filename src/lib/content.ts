@@ -15,6 +15,13 @@ export const newsCategoryLabels: Record<NewsCategory, string> = {
   notice: 'Comunicazione',
 };
 
+/** CSS object-position for each crop focus choice. */
+export const imageFocusPosition: Record<NewsEntry['data']['imageFocus'], string> = {
+  top: 'center 15%',
+  center: 'center',
+  bottom: 'center 85%',
+};
+
 const byOrder = <T extends { data: { order: number } }>(a: T, b: T) => a.data.order - b.data.order;
 
 export async function getNews(): Promise<NewsEntry[]> {

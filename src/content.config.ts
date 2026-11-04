@@ -22,6 +22,8 @@ const news = defineCollection({
       category: z.enum(['race', 'event', 'notice']),
       image: image().optional(),
       imageAlt: z.string().optional(),
+      /** Part of the photo kept when it is cropped (WordPress: "Parte da mostrare"). */
+      imageFocus: z.enum(['top', 'center', 'bottom']).default('top'),
       results: z
         .array(
           z.object({
