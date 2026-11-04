@@ -43,12 +43,40 @@ interface WpItem {
   };
 }
 
+const MAX_CONCURRENT = 4;
+const RETRY_DELAYS = [2000, 5000, 10000];
+let active = 0;
+const waiting: (() => void)[] = [];
+
+/**
+ * fetch() with a small concurrency cap and retries: the shared hosting may
+ * refuse bursts of connections (all collections load in parallel).
+ */
+async function request(url: string): Promise<Response> {
+  if (active >= MAX_CONCURRENT) await new Promise<void>((resolve) => waiting.push(resolve));
+  active++;
+  try {
+    for (let attempt = 0; ; attempt++) {
+      try {
+        const response = await fetch(url, { signal: AbortSignal.timeout(30_000) });
+        if (response.status < 500 || attempt >= RETRY_DELAYS.length) return response;
+      } catch (error) {
+        if (attempt >= RETRY_DELAYS.length) throw new Error(`WordPress unreachable: ${url}`, { cause: error });
+      }
+      await new Promise((resolve) => setTimeout(resolve, RETRY_DELAYS[attempt]));
+    }
+  } finally {
+    active--;
+    waiting.shift()?.();
+  }
+}
+
 /** All pages of a REST collection. */
 async function fetchAll<T>(baseUrl: string, route: string, query = ''): Promise<T[]> {
   const items: T[] = [];
   for (let page = 1, totalPages = 1; page <= totalPages; page++) {
     const url = `${baseUrl}/wp-json/wp/v2/${route}?per_page=100&page=${page}${query}`;
-    const response = await fetch(url);
+    const response = await request(url);
     if (!response.ok) throw new Error(`WordPress ${response.status} for ${url}`);
     totalPages = Number(response.headers.get('X-WP-TotalPages') ?? 1);
     items.push(...((await response.json()) as T[]));
@@ -57,7 +85,7 @@ async function fetchAll<T>(baseUrl: string, route: string, query = ''): Promise<
 }
 
 async function fetchMedia(baseUrl: string, id: number): Promise<WpMedia | null> {
-  const response = await fetch(`${baseUrl}/wp-json/wp/v2/media/${id}`);
+  const response = await request(`${baseUrl}/wp-json/wp/v2/media/${id}`);
   return response.ok ? ((await response.json()) as WpMedia) : null;
 }
 
@@ -67,7 +95,7 @@ async function cacheImage(url: string): Promise<string> {
   const mediaDir = path.join(root, CACHE_DIR, 'media');
   const target = path.join(mediaDir, name);
   if (!existsSync(target)) {
-    const response = await fetch(url);
+    const response = await request(url);
     if (!response.ok) throw new Error(`Image ${response.status}: ${url}`);
     await mkdir(mediaDir, { recursive: true });
     await writeFile(target, Buffer.from(await response.arrayBuffer()));
