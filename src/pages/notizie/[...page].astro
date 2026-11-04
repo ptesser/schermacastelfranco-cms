@@ -1,0 +1,46 @@
+---
+import type { GetStaticPaths, Page } from 'astro';
+import NewsCard from '../../components/NewsCard.astro';
+import PageHeader from '../../components/ui/PageHeader.astro';
+import Pagination from '../../components/ui/Pagination.astro';
+import Section from '../../components/ui/Section.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getNews, type NewsEntry } from '../../lib/content';
+
+export const NEWS_PAGE_SIZE = 9;
+
+export const getStaticPaths = (async ({ paginate }) => {
+  return paginate(await getNews(), { pageSize: NEWS_PAGE_SIZE });
+}) satisfies GetStaticPaths;
+
+interface Props {
+  page: Page<NewsEntry>;
+}
+
+const { page } = Astro.props;
+const pageHref = (n: number) => (n === 1 ? '/notizie/' : `/notizie/${n}/`);
+const title = page.currentPage === 1 ? 'Notizie e gare' : `Notizie e gare — pagina ${page.currentPage} di ${page.lastPage}`;
+---
+
+<BaseLayout title={title} description="Risultati delle gare, eventi e comunicazioni del Circolo Scherma Castelfranco Veneto.">
+  <PageHeader title="Notizie e gare">
+    Risultati delle gare, eventi del circolo e comunicazioni agli iscritti.
+    {page.lastPage > 1 && <span class="news-count">Pagina {page.currentPage} di {page.lastPage} · {page.total} notizie.</span>}
+  </PageHeader>
+  <Section label="Elenco notizie">
+    <div class="stack">
+      <ul class="grid">
+        {page.data.map((entry) => <li><NewsCard entry={entry} headingLevel={2} showExcerpt /></li>)}
+      </ul>
+      <Pagination current={page.currentPage} last={page.lastPage} href={pageHref} label="Pagine delle notizie" />
+    </div>
+  </Section>
+</BaseLayout>
+
+<style>
+  .news-count {
+    display: block;
+    margin-block-start: var(--space-xs);
+    font-size: var(--text-sm);
+  }
+</style>

@@ -1,0 +1,105 @@
+---
+/**
+ * Page navigation for paginated lists (Astro `paginate()` output).
+ * Renders nothing when there is a single page.
+ */
+interface Props {
+  current: number;
+  last: number;
+  /** URL of page n. */
+  href: (page: number) => string;
+  label?: string;
+}
+
+const { current, last, href, label = 'Paginazione' } = Astro.props;
+const pages = Array.from({ length: last }, (_, index) => index + 1);
+---
+
+{
+  last > 1 && (
+    <nav class="pagination" aria-label={label}>
+      <ul>
+        <li class="pagination__step">
+          {current > 1 ? (
+            <a href={href(current - 1)} rel="prev">
+              <span aria-hidden="true">←</span> Precedente
+            </a>
+          ) : null}
+        </li>
+        {pages.map((page) => (
+          <li>
+            {page === current ? (
+              <a href={href(page)} aria-current="page">
+                <span class="visually-hidden">Pagina </span>
+                {page}
+              </a>
+            ) : (
+              <a href={href(page)}>
+                <span class="visually-hidden">Pagina </span>
+                {page}
+              </a>
+            )}
+          </li>
+        ))}
+        <li class="pagination__step">
+          {current < last ? (
+            <a href={href(current + 1)} rel="next">
+              Successiva <span aria-hidden="true">→</span>
+            </a>
+          ) : null}
+        </li>
+      </ul>
+    </nav>
+  )
+}
+
+<style>
+  .pagination ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-xs);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .pagination a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    min-inline-size: var(--target-min);
+    min-block-size: var(--target-min);
+    padding-inline: 0.875rem;
+    border: var(--border);
+    border-radius: var(--radius-pill);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .pagination a:hover {
+    text-decoration: underline;
+  }
+
+  .pagination a[aria-current='page'] {
+    background: var(--color-text);
+    color: #fff;
+  }
+
+  /* On narrow screens Precedente/Successiva take their own row. */
+  @media (max-width: 30rem) {
+    .pagination__step {
+      flex-basis: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .pagination__step:empty {
+      display: none;
+    }
+  }
+</style>
