@@ -34,6 +34,9 @@ The site is a Cloudflare Pages project connected to this repository (`wrangler.j
 | Build output directory | `dist` |
 | Production branch | `main` |
 | Node version | from `.nvmrc` (22) |
+| Environment variable | `WP_URL=https://cms.schermacastelfranco.it` |
+
+With `WP_URL` set the build reads content from the WordPress REST API (`src/lib/wordpress-loader.ts`); without it, from `migration/`. Locally: `WP_URL=https://cms.schermacastelfranco.it npm run build`.
 
 Test site: `test.schermacastelfranco.it`, a CNAME at Netsons pointing to `schermacastelfranco-cms.pages.dev`. WordPress triggers a rebuild on publish through a Pages deploy hook stored in `SCHERMA_DEPLOY_HOOK_URL` (see `wordpress/README.md`).
 
