@@ -34,7 +34,7 @@ The site is a Cloudflare Pages project connected to this repository (`wrangler.j
 | Build output directory | `dist` |
 | Production branch | `main` |
 | Node version | from `.nvmrc` (22) |
-| Environment variable | `WP_URL=https://cms.schermacastelfranco.it` |
+| Environment variable | `WP_URL`, set in `wrangler.jsonc` (`vars`) |
 
 With `WP_URL` set the build reads content from the WordPress REST API (`src/lib/wordpress-loader.ts`); without it, from `migration/`. Locally: `WP_URL=https://cms.schermacastelfranco.it npm run build`.
 

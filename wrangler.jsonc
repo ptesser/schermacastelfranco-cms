@@ -1,7 +1,12 @@
 {
   // Cloudflare Pages: serves the static Astro build. 404.html is used automatically.
+  // This file is the source of truth for the project settings, including build variables.
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "schermacastelfranco-cms",
   "compatibility_date": "2026-10-30",
-  "pages_build_output_dir": "./dist"
+  "pages_build_output_dir": "./dist",
+  "vars": {
+    // Build reads content from WordPress (src/lib/wordpress-loader.ts).
+    "WP_URL": "https://cms.schermacastelfranco.it"
+  }
 }
